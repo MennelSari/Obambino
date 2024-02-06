@@ -15,7 +15,7 @@ const HeaderPublic = () => {
         <li><a>Item 3</a></li>
       </ul>
     </div>
-    <a className="btn btn-ghost text-xl">O'bambino</a>
+    <p className="text-xl">Logo</p>
   </div>
   
   <div className="navbar-end">

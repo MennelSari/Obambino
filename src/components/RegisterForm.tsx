@@ -5,10 +5,10 @@ const RegisterForm = () => {
         <div>
         <HeaderPublic />
 
-      <div className="bg-grey-lighter min-h-screen flex flex-col">
+      <div className="bg-[#FFE1CC] min-h-screen flex flex-col">
         <div className="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
-          <div className="bg-white px-6 py-8 rounded shadow-md text-black w-full">
-            <h1 className="mb-8 text-3xl text-center">Inscription</h1>
+          <div className="bg-[#332623] px-6 py-8 rounded shadow-md text-black w-full">
+            <h1 className="mb-8 text-3xl text-center text-white">Inscription</h1>
             <input 
               type="text"
               className="block border border-grey-light w-full p-3 rounded mb-4"
@@ -40,15 +40,15 @@ const RegisterForm = () => {
   
             <button
               type="submit"
-              className="w-full text-center py-3 rounded bg-green text-black hover:bg-green-dark focus:outline-none my-1"
+              className="w-full text-center py-3 rounded bg-green text-white hover:bg-green-dark focus:outline-none my-1"
             >Créer le compte</button>
   
-            <div className="text-center text-sm text-grey-dark mt-4">
+            <div className="text-center text-sm text-white mt-4">
               En créant un compte, vous acceptez nos
-              <a className="no-underline border-b border-grey-dark text-grey-dark" href="#">
+              <a className="no-underline border-b border-grey-dark text-white" href="#">
                  Conditions d'utilisation
               </a> et 
-              <a className="no-underline border-b border-grey-dark text-grey-dark" href="#">
+              <a className="no-underline border-b border-grey-dark text-white" href="#">
                 Politique de confidentialité
               </a>
             </div>
