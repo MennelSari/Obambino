@@ -5,7 +5,10 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      'raleway': ['Raleway', 'sans-serif'],
+      'fredoka': ['Fredoka One', 'cursive'],
+    },
   },
-  plugins: [],
-}
+    plugins: [require("daisyui")],
+  }
