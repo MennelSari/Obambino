@@ -1,5 +1,6 @@
 import HeaderPublic from './HeaderPublic';
 
+//composant pour afficher le formulaire d'inscription
 const RegisterForm = () => {
     return (
         <div>
