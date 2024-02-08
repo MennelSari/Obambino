@@ -1,4 +1,6 @@
 import HeaderPublic from './HeaderPublic';
+
+//composant pour la page de connexion
 const LoginForm = () => {
   return (
     <div>
