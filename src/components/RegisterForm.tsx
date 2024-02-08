@@ -1,6 +1,49 @@
 import HeaderPublic from './HeaderPublic';
+import { useState } from 'react';
+import axios from 'axios';
+
+// Define the form data interface
+interface FormData {
+    lastname: string;
+    firstname: string;
+    email: string;
+    password: string;
+    confirm_password: string;
+
+}
 
 const RegisterForm = () => {
+ 
+  const [formData, setFormData] = useState<FormData>({
+    lastname: '',
+    firstname: '',
+    email: '',
+    password: '',
+    confirm_password: ''
+  });
+
+  // To update the input's form
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  // To submit the form
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault(); // Prevent the default form behavior
+
+    // Check if the password and the confirm_password are the same
+    if (formData.password !== formData.confirm_password) {
+      alert("Les mots de passe ne sont pas identiques.");
+      return;
+    }
+    try {
+      const response = await axios.post('API_DES_BACK', formData); // Send a POST request to the backend
+      console.log(response.data); // Log the response
+    } catch (error) {
+      console.error(error); // Log the error
+    }
+  };
+
     return (
         <div>
         <HeaderPublic />
@@ -9,26 +52,35 @@ const RegisterForm = () => {
         <div className="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
           <div className="bg-[#332623] px-6 py-8 rounded shadow-md text-black w-full">
             <h1 className="mb-8 text-3xl text-center text-white">Inscription</h1>
+            <form onSubmit={handleSubmit}> {/*// Add the onSubmit function when the submit button is clicked*/}
             <input 
               type="text"
               className="block border border-grey-light w-full p-3 rounded mb-4"
-              name="nom"
+              value={formData.lastname}
+              onChange={handleChange}
+              name="lastname"
               placeholder="Nom" />
               <input 
               type="text"
               className="block border border-grey-light w-full p-3 rounded mb-4"
-              name="prenom"
+              value={formData.firstname}
+              onChange={handleChange}
+              name="firstname"
               placeholder="Prénom" />
   
             <input 
               type="text"
               className="block border border-grey-light w-full p-3 rounded mb-4"
+              value={formData.email}
+              onChange={handleChange}
               name="email"
               placeholder="Email" />
   
             <input 
               type="password"
               className="block border border-grey-light w-full p-3 rounded mb-4"
+              value={formData.password}
+              onChange={handleChange}
               name="password"
               placeholder="Mot de Passe" />
   
@@ -52,8 +104,10 @@ const RegisterForm = () => {
                 Politique de confidentialité
               </a>
             </div>
+            </form>
           </div>
         </div>
+        
       </div>
     
     </div>
