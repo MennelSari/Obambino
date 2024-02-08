@@ -1,10 +1,10 @@
-import axios from "axios";
+{/*import axios from "axios";*/}
 import Balloon from '../assets/Balloon.png'
-import { useState, useEffect } from "react";
+{/*import { useState, useEffect } from "react";*/}
 
 const HeroPublic = () => {
 
-  const [data, setData] = useState(null);
+  {/*const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -24,7 +24,7 @@ const HeroPublic = () => {
   }, []);
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
-  if (!data) return null;
+  if (!data) return null; */}
 
   return (
 
@@ -35,15 +35,13 @@ const HeroPublic = () => {
       <h1 className="text-5xl font-bold">O'bambino</h1>
       <h2>Vos p’tis bouts toujours proches de vous
         </h2>
-        {data.map((item,index) => (
-        <div key={index}>
-        {item.starter} {item.dessert}
-        </div>
-    ))}
+        
       <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+        </div>
+  
     </div>
   </div>
-</div>
+
  
   )
 }
