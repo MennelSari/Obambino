@@ -2,7 +2,7 @@ import Balloon from '../assets/Balloon.png';
 
 const HeroParent = () => {
   return (
-    <div>
+    
         <div className="hero min-h-screen bg-[#FFE1CC]">
   <div className="hero-content flex-col lg:flex-row-reverse">
     <img src={Balloon} className="max-w-sm rounded-lg" />
@@ -16,7 +16,7 @@ const HeroParent = () => {
         </div>
     </div>
   </div>
-</div>
+
  
   )
 }
