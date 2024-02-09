@@ -4,13 +4,13 @@ import axios from 'axios';
 
 
   interface FormData {
-    email: string;
+    username: string;
     password: string;
   }
 const LoginForm = () => {
 
   const [formData, setFormData] = useState<FormData>({
-    email: '',
+    username: '',
     password: ''
   });
 
@@ -42,9 +42,9 @@ const LoginForm = () => {
             <input 
               type="text"
               className="block border border-grey-light w-full p-3 rounded mb-4"
-              value={formData.email}
+              value={formData.username}
               onChange={handleChange}
-              name="email"
+              name="username"
               placeholder="Email" />
 
             <input 
