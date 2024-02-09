@@ -21,7 +21,9 @@ const LoginForm = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault(); // Stop the browser from submitting the form
     try {
-      const response = await axios.post('URL_DE_VOTRE_ENDPOINT_SYMFONY', formData); // send the data to the backend
+      const response = await axios.post('http://jeremie-sarloutte.vpnuser.lan/projet-03-o-bambino-back/public/api/login_check', JSON.stringify(formData), 
+      { headers: { 'Content-Type': 'application/json' } } // Définir l'en-tête Content-Type
+    ); // send the data to the backend
       console.log(response.data); // The response is the data from the backend
     } catch (error) {
       console.error(error); // If an error occurs, the error is logged
