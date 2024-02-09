@@ -9,13 +9,12 @@ interface FormData {
     email: string;
     password: string;
     confirm_password: string;
-
 }
 
 const RegisterForm = () => {
  
   const [formData, setFormData] = useState<FormData>({
-    lastname: '',
+    lastname: '23',
     firstname: '',
     email: '',
     password: '',
