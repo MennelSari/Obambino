@@ -1,6 +1,14 @@
 import {Link} from 'react-router-dom';
+import Cookies from 'js-cookie';
 
 export default function HeaderParent() {
+
+  const handleLogout = () => {
+    Cookies.remove('token');
+  
+  window.location.href = '/'; 
+};
+
   return (
     
     
@@ -33,8 +41,9 @@ export default function HeaderParent() {
   </div>
   <div className="navbar-end">
 
-  <Link to="/#" className="btn bg-[#FF7B4D]">DECONNEXION</Link>
+  <button className="btn bg-[#FF7B4D]" onClick={handleLogout}>DECONNEXION</button>
   </div>
+  
 </div>
     
   )
