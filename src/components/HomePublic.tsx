@@ -9,7 +9,6 @@ const Home = () => {
     <div className="bg-[#FFE1CC] min-h-screen min-w-screen">
       <HeaderPublic />
       <HeroPublic />
-
       <Reviews />
       <Footer />
     </div>
