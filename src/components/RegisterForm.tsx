@@ -1,6 +1,7 @@
 import HeaderPublic from './HeaderPublic';
 import { useState } from 'react';
 import axios from 'axios';
+import {URL_Jerem} from "../URL_List"
 
 // Define the form data interface
 interface FormData {
@@ -8,7 +9,8 @@ interface FormData {
     firstname: string;
     email: string;
     password: string;
-    confirm_password: string;
+    role: [];
+
 }
 
 //composant pour afficher le formulaire d'inscription
@@ -19,7 +21,7 @@ const RegisterForm = () => {
     firstname: '',
     email: '',
     password: '',
-    confirm_password: ''
+    role: [],
   });
 
   // To update the input's form
@@ -31,13 +33,13 @@ const RegisterForm = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault(); // Prevent the default form behavior
 
-    // Check if the password and the confirm_password are the same
+    {/*// Check if the password and the confirm_password are the same
     if (formData.password !== formData.confirm_password) {
       alert("Les mots de passe ne sont pas identiques.");
       return;
-    }
+    }*/}
     try {
-      const response = await axios.post('API_DES_BACK', formData); // Send a POST request to the backend
+      const response = await axios.post(`${URL_Jerem}api/user/create`, formData); // Send a POST request to the backend
       console.log(response.data); // Log the response
     } catch (error) {
       console.error(error); // Log the error
