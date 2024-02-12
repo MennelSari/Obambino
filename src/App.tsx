@@ -7,6 +7,9 @@ import MealsPage from "./components/MealsPage";
 import ChildRegister from "./components/ChildRegister";
 import ReactDOM from 'react-dom'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Cookies from 'js-cookie';
+
+
 
 
 

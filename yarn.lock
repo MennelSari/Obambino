@@ -1265,7 +1265,11 @@ jiti@^1.19.1:
 
 js-cookie@^3.0.5:
   version "3.0.5"
+<<<<<<< HEAD
   resolved "https://registry.yarnpkg.com/js-cookie/-/js-cookie-3.0.5.tgz#0b7e2fd0c01552c58ba86e0841f94dc2557dcdbc"
+=======
+  resolved "https://registry.npmjs.org/js-cookie/-/js-cookie-3.0.5.tgz"
+>>>>>>> 7457f47d79d337e99e63efa0e9df68c67c23e463
   integrity sha512-cEiJEAEoIbWfCZYKWhVwFuvPX1gETRYPw6LlaTKoxD3s2AkXzkCjnp6h0V77ozyqj0jakteJ4YqDJT830+lVGw==
 
 "js-tokens@^3.0.0 || ^4.0.0":

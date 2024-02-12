@@ -31,6 +31,7 @@ const LoginForm = () => {
     Cookies.set('token', response.data.token, { expires: 7 }); //To stock the token in a Cookie, and i set the expire to 7 days
     console.log('token stocké dans un cookie :', response.data.token);
       console.log(response.data); // The response is the data from the backend
+
       window.location.href = '/test';
     } catch (error) {
       console.error(error); // If an error occurs, the error is logged
@@ -41,6 +42,7 @@ const LoginForm = () => {
   return (
     <div>
       <HeaderPublic />
+      <RedirectIfAuthenticated/> 
     <div className="bg-[#FFE1CC] min-h-screen flex flex-col">
       <div className="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
         <div className="bg-[#332623] px-6 py-8 rounded shadow-md text-black w-full">
