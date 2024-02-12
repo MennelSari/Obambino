@@ -5,14 +5,10 @@ import TestParent from "./components/TestParent";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Cookies from 'js-cookie';
 
-interface Itoken {
-  token: string
-}
+
 
 function App() {
   
-
-  const token:Itoken = Cookies.get('token');
 
   return (
     <>
