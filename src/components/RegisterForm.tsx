@@ -11,6 +11,7 @@ interface FormData {
     confirm_password: string;
 }
 
+//composant pour afficher le formulaire d'inscription
 const RegisterForm = () => {
  
   const [formData, setFormData] = useState<FormData>({

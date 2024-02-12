@@ -9,6 +9,8 @@ import RedirectIfAuthenticated from './RedirectIfAuthenticated';
     username: string;
     password: string;
   }
+
+//composant pour la page de connexion
 const LoginForm = () => {
 
   const [formData, setFormData] = useState<FormData>({
