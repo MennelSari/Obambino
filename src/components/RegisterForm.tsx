@@ -43,7 +43,7 @@ const RegisterForm = () => {
     if (formData.password !== confirm_password) {
       alert("Les mots de passe ne sont pas identiques.");
       return;
-    }*/}
+    
     try {
       const response = await axios.post(`${URL_Jerem}/api/user/create`, formData); // Send a POST request to the backend
       console.log(response.data); // Log the response
