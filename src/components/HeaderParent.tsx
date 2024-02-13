@@ -1,5 +1,6 @@
 import {Link} from 'react-router-dom';
 import Cookies from 'js-cookie';
+import Logo from '../assets/logosvg.svg';
 
 export default function HeaderParent() {
 
@@ -27,11 +28,16 @@ export default function HeaderParent() {
         
       </ul>
     </div>
-    <a className="btn btn-ghost text-xl hidden md:block">O'bambino</a>
+    <div className="navbar max-h-20">
+          <Link to="/parent">
+            <img src={Logo} alt="" className="hidden md:block w-64 h-64 object-contain object-center" />
+          </Link>
+  
+        </div>
   </div>
   {/* Desktop menu */}
   <div className="navbar-end hidden lg:flex">
-    <ul className="menu menu-horizontal px-1">
+    <ul className="menu menu-horizontal px-1 flex-nowrap">
       <li><Link to="/parent">ACCUEIL</Link></li>
       <li><Link to="/calendrier">CALENDRIER</Link> </li>
       <li> <Link to="/meals">MENU DE LA SEMAINE</Link> </li>

@@ -8,7 +8,7 @@ const ParentsCard = () => {
      
         <section className="flex items-center bg-[#FFE1CC] lg:h-screen dark:bg-gray-800 font-poppins">
           <div className="max-w-6xl px-4 mx-auto">
-              <div className="grid gap-10 text-start md:grid-cols-3">
+              <div className="grid gap-10 text-start md:grid-cols-3 w-full">
                     <div
                       className="relative p-8 mb-6 bg-[#332623] border border-gray-100 shadow dark:border-gray-700 md:mb-0 dark:bg-gray-700 rounded-lg">
                         <img src={Meal} alt="" className="absolute top-[-50px] left-[-30px] w-13 h-13" />
