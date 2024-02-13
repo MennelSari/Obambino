@@ -8,6 +8,8 @@ import ChildRegister from "./components/ChildRegister";
 import ReactDOM from 'react-dom'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Cookies from 'js-cookie';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 
 
@@ -15,10 +17,29 @@ import Cookies from 'js-cookie';
 
 
 function App() {
-  
 
+  const [userData, setUserData] = useState(null);
+
+  useEffect(() => {
+    //to get the token from the cookie
+    const token = Cookies.get('token');
+    
+    //if the token exists, we add it to the header of the axios request
+    if (token) {
+      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+      axios.get('http://jeremie-sarloutte.vpnuser.lan/projet-03-o-bambino-back/public/api/user/list') //ME FAUT LA BONNE API
+        .then(response => {
+          console.log('reponse du back :', response.data);
+          setUserData(response.data);
+        })
+        .catch(error => {
+          console.error('erreur:', error);
+        });
+    }
+  }, []); 
   return (
     <>
+ 
       <Router>
         <Routes>
           <Route path="/" element={<HomePublic/>}/>
@@ -30,6 +51,7 @@ function App() {
           <Route path="/addchild" element={<ChildRegister/>}/>
         </Routes>
       </Router>
+
     </>
   )
 }
