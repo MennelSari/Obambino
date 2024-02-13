@@ -2,7 +2,8 @@ import HeaderParent from './HeaderParent';
 import HeroParent from './HeroParent';
 import ParentsCard from './ParentsCard';
 import Footer from './Footer';
-//Composant qui affiche la page d'accueil pour le parent connecté
+
+//This is the parent home page component
 const HomeParent = () => {
   return (
     <div className="bg-[#FFE1CC] min-h-screen min-w-screen">

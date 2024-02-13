@@ -1,5 +1,8 @@
 import Balloon from '../assets/Balloon.png';
 
+//This is the parent component of the dashboard, it contains the welcome message and the image of the balloon
+//For now, the welcome message is static, but it will be dynamic in the future
+
 const HeroParent = () => {
   return (
     

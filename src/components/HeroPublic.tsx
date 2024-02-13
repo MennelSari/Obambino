@@ -1,6 +1,8 @@
-{/*import axios from "axios";*/}
 import Balloon from '../assets/Balloon.png'
-{/*import { useState, useEffect } from "react";*/}
+
+//This is the public hero section of the website
+//It is the first thing that the user sees when they visit the website
+
 
 const HeroPublic = () => {
 
