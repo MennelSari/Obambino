@@ -2,13 +2,18 @@ import HeaderParent from './HeaderParent';
 import HeroParent from './HeroParent';
 import ParentsCard from './ParentsCard';
 import Footer from './Footer';
+import {IuserData} from "./type"
+
+interface Props {
+  userData: IuserData
+}
 //Composant qui affiche la page d'accueil pour le parent connecté
-const HomeParent = () => {
+const HomeParent = ({userData}:Props) => {
 
   return (
     <div className="bg-[#FFE1CC] min-h-screen min-w-screen">
       <HeaderParent />
-      <HeroParent/>
+      <HeroParent userData={userData}/>
       <ParentsCard />
       <Footer />
     </div>
