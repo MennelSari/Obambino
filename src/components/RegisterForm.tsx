@@ -45,7 +45,7 @@ const RegisterForm = () => {
       return;
     
     try {
-      const response = await axios.post(`${URL_Jerem}/api/user/create`, formData); // Send a POST request to the backend
+      const response = await axios.post(`${URL_Jerem}api/user/create`, formData); // Send a POST request to the backend
       console.log(response.data); // Log the response
     } catch (error) {
       console.error(error); // Log the error
@@ -120,6 +120,6 @@ const RegisterForm = () => {
     
     </div>
         );
-  }
+  }}
   
   export default RegisterForm;

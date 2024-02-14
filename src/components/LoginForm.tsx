@@ -32,7 +32,7 @@ const LoginForm = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault(); // Stop the browser from submitting the form
     try {
-      const response = await axios.post(`${URL_Jerem}/api/login_check`, JSON.stringify(formData), 
+      const response = await axios.post(`${URL_Jerem}api/login_check`, JSON.stringify(formData), 
       { headers: { 'Content-Type': 'application/json' } } //To be sure that i get format json
     ); // send the data to the backend
     Cookies.set('token', response.data.token, { expires: 7 }); //To stock the token in a Cookie, and i set the expire to 7 days
