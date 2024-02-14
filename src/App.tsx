@@ -10,8 +10,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Cookies from 'js-cookie';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import {IuserData} from "./type"
-
+import Calendar from "./components/Calendar";
 
 
 
@@ -39,6 +38,7 @@ function App() {
     }
   }, []); 
   console.log("contenu de ma props =", userData)
+  
   return (
     <>
  
@@ -51,6 +51,7 @@ function App() {
           <Route path="/parent" element={<HomeParent userData={userData}/>}/>
           <Route path="/meals" element={<MealsPage/>}/>
           <Route path="/addchild" element={<ChildRegister/>}/>
+          <Route path="/calendar" element={<Calendar/>}/>
         </Routes>
       </Router>
 

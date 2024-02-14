@@ -33,7 +33,7 @@ export default function HeaderParent() {
   <div className="navbar-end hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
       <li><Link to="/parent">ACCUEIL</Link></li>
-      <li><Link to="/calendrier">CALENDRIER</Link> </li>
+      <li><Link to="/calendar">CALENDRIER</Link> </li>
       <li> <Link to="/meals">MENU DE LA SEMAINE</Link> </li>
       <li> <Link to="/info">MES INFOS</Link> </li>
       
