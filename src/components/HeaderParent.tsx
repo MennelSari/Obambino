@@ -2,12 +2,16 @@ import {Link} from 'react-router-dom';
 import Cookies from 'js-cookie';
 import Logo from '../assets/logosvg.svg';
 
+//This component is the header for the parent page. It contains the links to the different pages of the parent's interface and a button to log out.
+
 export default function HeaderParent() {
 
+
+  //Function to log out the user
   const handleLogout = () => {
-    Cookies.remove('token');
+    Cookies.remove('token'); //This line will remove the token from the cookies
   
-  window.location.href = '/'; 
+  window.location.href = '/'; //This line will redirect the user to the login page
 };
 
   return (
@@ -47,7 +51,7 @@ export default function HeaderParent() {
   </div>
   <div className="navbar-end">
 
-  <button className="btn bg-[#FF7B4D]" onClick={handleLogout}>DECONNEXION</button>
+  <button className="btn bg-[#FF7B4D]" onClick={handleLogout}>DECONNEXION</button> {/* This button will call the function handleLogout when clicked*/}
   </div>
   
 </div>

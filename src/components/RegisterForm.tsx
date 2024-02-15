@@ -1,18 +1,24 @@
 import HeaderPublic from './HeaderPublic';
 import { useState } from 'react';
 import axios from 'axios';
+
 import { URL_Gassim } from '../URL_List';
 
-// Define the form data interface
+
+
+
+// Define the form data interface to type the formData state
 interface FormData {
     lastname: string;
     firstname: string;
     email: string;
     password: string;
+
     role: [];
+
 }
 
-//composant pour afficher le formulaire d'inscription
+
 const RegisterForm = () => {
  
   const [formData, setFormData] = useState<FormData>({
@@ -20,12 +26,18 @@ const RegisterForm = () => {
     firstname: '',
     email: '',
     password: '',
+
     role: [],
+
   });
 
   // To update the input's form
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: value
+    }));
   };
 
   // To submit the form
@@ -33,9 +45,11 @@ const RegisterForm = () => {
     e.preventDefault(); // Prevent the default form behavior
 
     // Check if the password and the confirm_password are the same
+
     
     try {
       const response = await axios.post(`${URL_Gassim}api/user/create`, formData); // Send a POST request to the backend
+
       console.log(response.data); // Log the response
     } catch (error) {
       console.error(error); // Log the error
@@ -54,8 +68,8 @@ const RegisterForm = () => {
             <input 
               type="text"
               className="block border border-grey-light w-full p-3 rounded mb-4"
-              value={formData.lastname}
-              onChange={handleChange}
+              value={formData.lastname} // Add the value attribute to the input
+              onChange={handleChange} // Add the onChange function to update the state
               name="lastname"
               placeholder="Nom" />
               <input 
@@ -110,6 +124,6 @@ const RegisterForm = () => {
     
     </div>
         );
-  }
+  }}
   
   export default RegisterForm;

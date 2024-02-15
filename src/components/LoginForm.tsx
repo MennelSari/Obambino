@@ -2,10 +2,15 @@ import HeaderPublic from './HeaderPublic';
 import { useState } from 'react';
 import axios from 'axios';
 import Cookies from 'js-cookie';
+
 import {URL_Gassim} from "../URL_List"
 
 
 
+
+//This is the interface for the form data
+
+//It is used to define the type of the state
   interface FormData {
     username: string;
     password: string;
@@ -20,20 +25,28 @@ const LoginForm = () => {
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: value
+    }));
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault(); // Stop the browser from submitting the form
     try {
+
       const response = await axios.post(`${URL_Gassim}api/login_check`, JSON.stringify(formData), 
+
       { headers: { 'Content-Type': 'application/json' } } //To be sure that i get format json
     ); // send the data to the backend
     Cookies.set('token', response.data.token, { expires: 7 }); //To stock the token in a Cookie, and i set the expire to 7 days
     console.log('token stocké dans un cookie :', response.data.token);
       console.log(response.data); // The response is the data from the backend
 
+
       window.location.href = '/parent';
+
     } catch (error) {
       console.error(error); // If an error occurs, the error is logged
     }

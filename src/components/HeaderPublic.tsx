@@ -2,6 +2,13 @@ import { Link } from 'react-router-dom';
 import Logo from '../assets/logosvg.svg';
 import "../index.css";
 
+//This is the header for the public pages
+//It contains the navigation links to the public pages
+//It also contains the links to the login and register pages
+
+//all the links are wrapped in the Link component from react-router-dom
+//so that the user can navigate to the respective pages
+
 const HeaderPublic = () => {
   return (
     <div className="navbar bg-[#FFE1CC]">
@@ -32,6 +39,7 @@ const HeaderPublic = () => {
       </div>
 
     </div>
+
   )
 }
 
