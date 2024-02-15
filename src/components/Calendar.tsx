@@ -8,20 +8,23 @@ import "../calendar.css";
 import Footer from './Footer';
 import {useEffect, useState} from 'react';
 import axios from 'axios';
+import {URL_Maxime} from "../URL_List";
 
 
 const Calendar = () => {
 
   const [events, setEvents] = useState<[]>([]);
-
+  
+ //to get the events from the database
   useEffect(() => {
     fetchData();
   }, []);
 
   const fetchData = async () => {
     try {
-      const response = await axios.get("URL DES EVENEMENTS");
+      const response = await axios.get(`${URL_Maxime}api/event/calendar`);
       setEvents(response.data);
+      console.log(response.data);
     } catch (error) {
       console.error("error");
 
@@ -34,18 +37,18 @@ const Calendar = () => {
         <h1 className="text-5xl text-center font-bold mb-10">Retrouvez le planning d'Obambino !</h1>
         <div className="bg-white rounded-[20px] w-3/4 h-3/4 mx-auto m-4">
     <FullCalendar
-      plugins={[ dayGridPlugin ]}
+      plugins={[ dayGridPlugin ]} // to display the calendar
       initialView="dayGridMonth"
         headerToolbar={{
             start: 'today prev,next', 
             center: 'title',
-            end: 'dayGridMonth,dayGridWeek,dayGridDay', // will normally be on the right. if RTL, will be on the left
+            end: 'dayGridMonth,dayGridWeek,dayGridDay', // buttons for switching between views
             
           }}
       height= {"90vh"}
-      handleWindowResize={true}
-      locale={frLocale}
-      events={events}
+      handleWindowResize={true} //to resize the calendar when the window is resized
+      locale={frLocale} //to display the calendar in french
+      events={events} //to get the events from the database
     />
     </div>
     <Footer />
