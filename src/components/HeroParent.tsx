@@ -1,32 +1,30 @@
-import Balloon from '../assets/Balloon.png';
+import React from 'react';
+import Balloon from "../assets/Balloon.png"
+import {IuserData} from "./type"
 
-//This is the parent component of the dashboard, it contains the welcome message and the image of the balloon
-//For now, the welcome message is static, but it will be dynamic in the future
 
-const HeroParent = () => {
+interface Props {
+  userData: IuserData
+}
+const HeroParent = ({ userData }:Props) => {
+  // To check if userData is not null
+  if (!userData) {
+    return <div>Chargement...</div>;
+  }
+
   return (
-    
-  <div>  
-  <div className="hero-content flex-col lg:flex-row-reverse bg-[#FFE1CC]">
-    <img src={Balloon} className="max-w-sm rounded-lg" />
-    <div>
-      <h1 className="text-5xl font-bold">Bienvenue Marie <br /> sur le tableau de bord de Léa</h1>
-      <div className="card w-96 bg-[#FDB54A] text-white mt-5">
-  <div className="card-body">
-    <h2 className="card-title">Informations flash :</h2>
-    <p>Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-    
-  </div>
-</div>
+    <div className="hero min-h-screen bg-[#FFE1CC]">
+      <div className="hero-content flex-col lg:flex-row-reverse">
+        <img src={Balloon} className="max-w-sm rounded-lg" />
+        <div>
+          <h1 className="text-5xl font-bold">Bienvenue {userData.firstname} sur le tableau de bord de Léa</h1>
+          <h2><strong> Informations flash :</strong></h2>
+          <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+        </div>
+      </div>
     </div>
-  </div>
-  </div>
-     
-    
+  );
 
-
- 
-  )
 }
 
-export default HeroParent
+export default HeroParent;
