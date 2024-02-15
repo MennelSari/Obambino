@@ -36,8 +36,8 @@ export default function MealsPage() {
             <div className="card-body">
                     
                     <ul className="text-white">
-                <li>Petit-déjeuné : blablaLUNDI</li>
-                <li>Déjeuné : blabla</li>
+                <li>Petit-déjeuner : AFFICHE REPAS LUNDI</li>
+                <li>Déjeuner : blabla</li>
                 <li>Goûter : blabla</li>
             </ul>
                     
@@ -48,8 +48,8 @@ export default function MealsPage() {
             <div className="card-body">
                     
                     <ul className="text-white">
-                <li>Petit-déjeuné : blablaMARDI</li>
-                <li>Déjeuné : blabla</li>
+                <li>Petit-déjeuner : AFFICHE REPAS MARDI</li>
+                <li>Déjeuner : blabla</li>
                 <li>Goûter : blabla</li>
             </ul>
                     

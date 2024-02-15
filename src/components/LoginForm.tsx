@@ -2,7 +2,10 @@ import HeaderPublic from './HeaderPublic';
 import { useState } from 'react';
 import axios from 'axios';
 import Cookies from 'js-cookie';
-import {URL_Jerem} from "../URL_List";
+
+import {URL_Gassim} from "../URL_List"
+
+
 
 
 //This is the interface for the form data
@@ -32,14 +35,18 @@ const LoginForm = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault(); // Stop the browser from submitting the form
     try {
-      const response = await axios.post(`${URL_Jerem}api/login_check`, JSON.stringify(formData), 
+
+      const response = await axios.post(`${URL_Gassim}api/login_check`, JSON.stringify(formData), 
+
       { headers: { 'Content-Type': 'application/json' } } //To be sure that i get format json
     ); // send the data to the backend
     Cookies.set('token', response.data.token, { expires: 7 }); //To stock the token in a Cookie, and i set the expire to 7 days
     console.log('token stocké dans un cookie :', response.data.token);
       console.log(response.data); // The response is the data from the backend
 
-      window.location.href = '/parent'; // Redirect the user to the home page
+
+      window.location.href = '/parent';
+
     } catch (error) {
       console.error(error); // If an error occurs, the error is logged
     }

@@ -1,8 +1,9 @@
 import HeaderPublic from './HeaderPublic';
 import { useState } from 'react';
 import axios from 'axios';
-import { URL_Jerem } from '../URL_List'; 
-//This is the form component for the registration
+
+import { URL_Gassim } from '../URL_List';
+
 
 
 
@@ -12,7 +13,9 @@ interface FormData {
     firstname: string;
     email: string;
     password: string;
-    role:[];
+
+    role: [];
+
 }
 
 
@@ -23,7 +26,9 @@ const RegisterForm = () => {
     firstname: '',
     email: '',
     password: '',
-    role:[],
+
+    role: [],
+
   });
 
   // To update the input's form
@@ -40,12 +45,11 @@ const RegisterForm = () => {
     e.preventDefault(); // Prevent the default form behavior
 
     // Check if the password and the confirm_password are the same
-    if (formData.password !== confirm_password) {
-      alert("Les mots de passe ne sont pas identiques.");
-      return;
+
     
     try {
-      const response = await axios.post(`${URL_Jerem}api/user/create`, formData); // Send a POST request to the backend
+      const response = await axios.post(`${URL_Gassim}api/user/create`, formData); // Send a POST request to the backend
+
       console.log(response.data); // Log the response
     } catch (error) {
       console.error(error); // Log the error
