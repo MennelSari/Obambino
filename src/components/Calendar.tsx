@@ -6,9 +6,28 @@ import HeaderParent from './HeaderParent';
 import interactionPlugin from '@fullcalendar/interaction'; // for selectable    
 import "../calendar.css";
 import Footer from './Footer';
+import {useEffect, useState} from 'react';
+import axios from 'axios';
 
 
 const Calendar = () => {
+
+  const [events, setEvents] = useState<[]>([]);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    try {
+      const response = await axios.get("URL DES EVENEMENTS");
+      setEvents(response.data);
+    } catch (error) {
+      console.error("error");
+
+    }
+  };
+
   return (
     <div className="bg-[#FFE1CC]">
         <HeaderParent />
@@ -18,13 +37,15 @@ const Calendar = () => {
       plugins={[ dayGridPlugin ]}
       initialView="dayGridMonth"
         headerToolbar={{
-            start: 'today prev,next', // will normally be on the left. if RTL, will be on the right
+            start: 'today prev,next', 
             center: 'title',
             end: 'dayGridMonth,dayGridWeek,dayGridDay', // will normally be on the right. if RTL, will be on the left
+            
           }}
       height= {"90vh"}
       handleWindowResize={true}
       locale={frLocale}
+      events={events}
     />
     </div>
     <Footer />
