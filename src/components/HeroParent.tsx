@@ -2,6 +2,7 @@ import React from 'react';
 import Balloon from "../assets/Balloon.png"
 import {IuserData} from "./type"
 
+
 interface Props {
   userData: IuserData
 }
@@ -23,6 +24,7 @@ const HeroParent = ({ userData }:Props) => {
       </div>
     </div>
   );
+
 }
 
 export default HeroParent;

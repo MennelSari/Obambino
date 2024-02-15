@@ -3,6 +3,10 @@ import Info from '../assets/unnamed.png';
 import Calendar from '../assets/calendar.png';
 import {Link} from 'react-router-dom';
 
+//This component is used to display the cards for the parents dashboard
+//It contains 3 cards with different information
+
+
 const ParentsCard = () => {
     return (
      

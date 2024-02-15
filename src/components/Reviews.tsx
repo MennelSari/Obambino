@@ -1,4 +1,7 @@
-//Composant pour afficher les avis des parents
+
+//This is the Reviews component that will be used to display the reviews of the website.
+//For now, the reviews are hardcoded but in the future, they will be fetched from the database.
+
 const Reviews = () => {
   return (
     <div>
