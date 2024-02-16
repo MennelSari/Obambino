@@ -10,6 +10,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Calendar from "./components/Calendar";
 import Children from "./components/Children";
+import Absence from "./components/Absence";
 
 //with the help of the react-router-dom library, we can create a single page application with multiple routes
 //we can use the Route component to define a route with the URL in path and the element prop to define the component that should be rendered when the route is active
@@ -53,6 +54,7 @@ function App() {
           <Route path="/meals" element={<MealsPage/>}/>
           <Route path="/calendar" element={<Calendar/>}/>
           <Route path="/children" element={<Children userData={userData}/>}/>
+          <Route path="/absence" element={<Absence/>}/>
         </Routes>
       </Router>
 

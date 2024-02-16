@@ -1,6 +1,7 @@
 import React from 'react'
 import {IuserData} from "../type";
 import AvatarFille from "../assets/avatarFille.png";
+import { Link } from 'react-router-dom';
 
 
 interface Props {
@@ -19,7 +20,7 @@ const CardChildren = ({userData}:Props) => {
             <img className="w-32 h-32 rounded-full mx-auto" src={AvatarFille} alt="John Doe"/>
         </div>
         <div className="p-2 ">
-            <h3 className="text-center text-xl text-white font-medium leading-8">Prenom nom enfant</h3>
+            <h3 className="text-center text-xl text-white font-medium leading-8">Léa</h3>
             <div className="text-center text-gray-400 text-xs font-semibold">
               
             </div>
@@ -32,14 +33,10 @@ const CardChildren = ({userData}:Props) => {
                     <td className="px-2 py-2 text-white font-semibold">Régime alimentaire :</td>
                     <td className="px-2 py-2 text-white">Végétarien</td>
                 </tr>
-                <tr>
-                    <td className="px-2 py-2 text-white font-semibold">Allergies :</td>
-                    <td className="px-2 py-2 text-white">Oeufs</td>
-                </tr>
             </tbody></table>
 
             <div className="text-center my-3">
-                <a className="text-xs text-black italic hover:underline hover:text-indigo-600 font-medium" href="#">Notifier une absence</a>
+                <Link to="/absence" className="text-xs  btn text-black font-medium"> Notifier une absence</Link>
             </div>
 
         </div>
