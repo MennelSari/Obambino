@@ -15,7 +15,7 @@ const HeroParent = ({ userData }:Props) => {
   return (
     <div className="hero min-h-screen bg-[#FFE1CC]">
       <div className="hero-content flex-col lg:flex-row-reverse">
-        <img src={Balloon} className="max-w-sm rounded-lg" />
+        <img src={Balloon} className="max-w-sm rounded-lg w-full h-auto" />
         <div>
           <h1 className="text-5xl font-bold">Bienvenue {userData.firstname} sur le tableau de bord de Léa</h1>
           <h2><strong> Informations flash :</strong></h2>
