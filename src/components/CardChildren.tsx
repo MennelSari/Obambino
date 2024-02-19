@@ -44,7 +44,7 @@ const CardChildren = ({ child }: Props) => {
                             </tbody></table>
 
                         <div className="text-center my-3">
-                            <Link to="/absence" className="text-xs  btn text-black font-medium"> Notifier une absence</Link>
+                            <Link to={`/absence/${child.id}`} className="text-xs  btn text-black font-medium"> Notifier une absence</Link>
                         </div>
 
                     </div>

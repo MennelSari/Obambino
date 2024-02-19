@@ -54,7 +54,7 @@ function App() {
           <Route path="/meals" element={<MealsPage/>}/>
           <Route path="/calendar" element={<Calendar/>}/>
           <Route path="/children" element={<Children userData={userData}/>}/>
-          <Route path="/absence" element={<Absence/>}/>
+          <Route path="/absence/:childId" element={<Absence/>}/>
         </Routes>
       </Router>
 

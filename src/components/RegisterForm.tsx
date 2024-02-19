@@ -26,7 +26,6 @@ const RegisterForm = () => {
     firstname: '',
     email: '',
     password: '',
-
     role: [],
 
   });

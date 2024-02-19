@@ -1,37 +1,115 @@
-import React from 'react'
+import {useState, useEffect} from 'react'
 import HeaderParent from './HeaderParent'
+import { useParams } from 'react-router-dom'; 
+import axios from 'axios'; 
+import {URL_Jerem} from "../URL_List";
+import { IChild } from "./Children";
 
+interface IChildInfo {
+  childInfo : IChild[]
+}
+
+interface IAbsence {
+  start_date: string;
+  end_date: string;
+  comment: string;
+}
 const Absence = () => {
+  const { childId } = useParams(); //to get the childId from the url
+  console.log(childId);
+
+  const [childInfo, setChildInfo] = useState<IChildInfo | null>(null);
+  const [absence, setAbsence] = useState<IAbsence>({
+    start_date: "",
+    end_date: "",
+    comment: "",
+  });
+
+  useEffect(() => {
+    const fetchChildInfo = async () => {
+      try {
+        const response = await axios.get<IChildInfo>(`${URL_Jerem}api/child/show/${childId}`);
+        setChildInfo(response.data); 
+        console.log(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchChildInfo();
+  }, [childId]);
+
+   // To update the input's form
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setAbsence(prevState => ({
+      ...prevState,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault(); 
+    try {
+      // to convert the date to ISO format
+      console.log("Avant conversion - start_date:", absence.start_date);
+      console.log("Avant conversion - end_date:", absence.end_date);
+      
+      const startDateISO = new Date(absence.start_date).toISOString();
+      const endDateISO = new Date(absence.end_date).toISOString();
+  
+      console.log("Après conversion - start_date:", startDateISO);
+      console.log("Après conversion - end_date:", endDateISO);
+  
+      const response = await axios.post(`${URL_Jerem}api/absence/create`, {
+        comment: absence.comment,
+        start_date: startDateISO,
+        end_date: endDateISO,
+        child_id: childId 
+      });
+  
+      console.log(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  
+
   return (
     <div className="bg-[#FFE1CC]">
         <HeaderParent />
         <div>
-       <h1 className="text-5xl text-center font-bold mb-10 mt-10">Les absences de NomEnfant</h1>
+          {childInfo && (
+            <div>
+       <h1 className="text-5xl text-center font-bold mb-10 mt-10">Les absences de {childInfo.firstname}</h1>
     
        <div className="bg-[#FFE1CC] min-h-screen flex flex-col">
         <div className="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
           <div className="bg-[#332623] px-6 py-8 rounded shadow-md text-black w-full">
             <h1 className="mb-8 text-xl text-center text-white">Informez nous grâce au formulaire ci-dessous :</h1>
-            <form > {/*// Add the onSubmit function when the submit button is clicked*/}
+            <form onSubmit={handleSubmit} > {/*// Add the onSubmit function when the submit button is clicked*/}
             <input 
               type="text"
               className="block border border-grey-light w-full p-3 rounded mb-4"
-             
-              name="lastname"
+              value={absence.comment}
+              onChange={handleChange} // Add the onChange function
+              name="comment"
               placeholder="Notez la raison de l'absence" />
               <label className="text-white">Du..</label>
               <input 
               type="date"
               className="block border border-grey-light w-full p-3 rounded mb-4"
-              
-              name="firstname"
+              value={absence.start_date}
+              onChange={handleChange} // Add the onChange function
+              name="start_date"
               placeholder="Du.." />
               <label className="text-white">Au..</label>
             <input 
               type="date"
               className="block border border-grey-light w-full p-3 rounded mb-4"
-              
-              name="email"
+              value={absence.end_date}
+              onChange={handleChange} // Add the onChange function
+              name="end_date"
               placeholder="Au.." />
   
             
@@ -45,7 +123,8 @@ const Absence = () => {
           </div>
         </div>
         
-      </div>
+      </div> </div>
+      )}
        </div>
     </div>
   )
