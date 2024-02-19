@@ -40,6 +40,7 @@ const Children = ({userData}:Props) => {
           .then(response => response.json())
           .then((data: IChild[]) => {
               const userId = userData.id; //id of the parent
+              console.log(userId)
               const matchingChildren = data.filter(child => child.user && child.user.id === userId); //filter children of the parent
               setMatchingChildren(matchingChildren); //set the state
           })

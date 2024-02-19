@@ -10,8 +10,8 @@ interface IChildInfo {
 }
 
 interface IAbsence {
-  start_date: string;
-  end_date: string;
+  startdate: string;
+  enddate: string;
   comment: string;
 }
 const Absence = () => {
@@ -20,8 +20,8 @@ const Absence = () => {
 
   const [childInfo, setChildInfo] = useState<IChildInfo | null>(null);
   const [absence, setAbsence] = useState<IAbsence>({
-    start_date: "",
-    end_date: "",
+    startdate: "",
+    enddate: "",
     comment: "",
   });
 
@@ -52,20 +52,21 @@ const Absence = () => {
     e.preventDefault(); 
     try {
       // to convert the date to ISO format
-      console.log("Avant conversion - start_date:", absence.start_date);
-      console.log("Avant conversion - end_date:", absence.end_date);
+      console.log("Avant conversion - start_date:", absence.startdate);
+      console.log("Avant conversion - end_date:", absence.enddate);
       
-      const startDateISO = new Date(absence.start_date).toISOString();
-      const endDateISO = new Date(absence.end_date).toISOString();
+      const startDateISO = new Date(absence.startdate).toISOString();
+      const endDateISO = new Date(absence.enddate).toISOString();
+
   
       console.log("Après conversion - start_date:", startDateISO);
       console.log("Après conversion - end_date:", endDateISO);
   
       const response = await axios.post(`${URL_Jerem}api/absence/create`, {
         comment: absence.comment,
-        start_date: startDateISO,
-        end_date: endDateISO,
-        child_id: childId 
+        startdate: startDateISO,
+        enddate: endDateISO,
+        children: childId 
       });
   
       console.log(response.data);
@@ -99,17 +100,17 @@ const Absence = () => {
               <input 
               type="date"
               className="block border border-grey-light w-full p-3 rounded mb-4"
-              value={absence.start_date}
+              value={absence.startdate}
               onChange={handleChange} // Add the onChange function
-              name="start_date"
+              name="startdate"
               placeholder="Du.." />
               <label className="text-white">Au..</label>
             <input 
               type="date"
               className="block border border-grey-light w-full p-3 rounded mb-4"
-              value={absence.end_date}
+              value={absence.enddate}
               onChange={handleChange} // Add the onChange function
-              name="end_date"
+              name="enddate"
               placeholder="Au.." />
   
             
