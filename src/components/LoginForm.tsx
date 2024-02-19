@@ -37,8 +37,7 @@ const LoginForm = () => {
     
 
       window.location.href = '/parent'; // Redirect the user to the home page '/parents
-    } 
-    catch (error) {
+    } catch (error) {
       console.error(error); // If an error occurs, the error is logged
     }
   };
