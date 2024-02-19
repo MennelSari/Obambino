@@ -2,7 +2,7 @@ import HeaderPublic from './HeaderPublic';
 import { useState } from 'react';
 import axios from 'axios';
 import Cookies from 'js-cookie';
-
+import {URL_Maxime} from "../URL_List";
 
 
 
@@ -28,7 +28,7 @@ const LoginForm = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault(); // Stop the browser from submitting the form
     try {
-      const response = await axios.post('http://jeremie-sarloutte.vpnuser.lan/projet-03-o-bambino-back/public/api/login_check', JSON.stringify(formData), 
+      const response = await axios.post(`${URL_Maxime}api/login_check`, JSON.stringify(formData), 
       { headers: { 'Content-Type': 'application/json' } } //To be sure that i get format json
     ); // send the data to the backend
     Cookies.set('token', response.data.token, { expires: 7 }); //To stock the token in a Cookie, and i set the expire to 7 days

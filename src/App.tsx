@@ -11,6 +11,7 @@ import Cookies from 'js-cookie';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import {IuserData} from "./type"
+import {URL_Maxime} from "./URL_List"
 
 
 
@@ -28,7 +29,7 @@ function App() {
     //if the token exists, we add it to the header of the axios request
     if (token) {
       axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-      axios.get('http://jeremie-sarloutte.vpnuser.lan/projet-03-o-bambino-back/public/api/secure/test') 
+      axios.get(`${URL_Maxime}api/secure/test`) 
         .then(response => {
           console.log('reponse du back :', response.data);
           setUserData(response.data);
