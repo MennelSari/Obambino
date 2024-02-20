@@ -126,8 +126,10 @@ useEffect(() => {
   fetchReports();
 }, []);
 
-  
-  
+const currentDate = new Date().toISOString().slice(0, 10);
+console.log("date du jour:", currentDate);
+
+const reportsOfTheDay = matchingReports.filter(report => report.dateReport.slice(0, 10) === currentDate);
 
 
   // END OF THE PART TO MANAGE THE REPORT
@@ -162,11 +164,11 @@ useEffect(() => {
             <img src={Info} alt="" className="absolute top-[-50px] left-[-30px] w-13 h-13" />
             <h3 className="mb-6 text-xl font-bold text-white dark:text-gray-400">Mon rapport du jour</h3>
             <div>
-  {matchingReports && matchingReports.map((report, reportIndex) => (
+  {reportsOfTheDay && reportsOfTheDay.map((report, reportIndex) => (
     <div key={reportIndex}>
       <h4 className="text-lg font-semibold text-white dark:text-gray-300">{report.child_report.firstname}</h4>
       <p className="mb-2 text-base text-white dark:text-gray-400">
-        a mangé: {report.mealReport}<br />
+        : {report.mealReport}<br />
         Toilette: {report.toiletReport}<br />
         dodo: {report.sleepReport}
       </p>
