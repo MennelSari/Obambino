@@ -1,6 +1,7 @@
 import Meal from '../assets/meal.png';
 import Info from '../assets/unnamed.png';
 import Calendar from '../assets/calendar.png';
+
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
@@ -157,6 +158,7 @@ const reportsOfTheDay = matchingReports.filter(report => report.dateReport.slice
                   En savoir plus
                 </button>
               </Link>
+
             </div>
           ) : <p>Chargement repas...</p>}
 

@@ -119,3 +119,6 @@ Supprimer un rapport [delete]
 => /api/report/delete/{id}
 
 ---------------------------------------
+
+CALENDRIER : 
+/api/event/calendar

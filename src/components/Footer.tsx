@@ -1,4 +1,6 @@
 
+//This is the footer component of the website
+
 const Footer = () => {
   return (
     
