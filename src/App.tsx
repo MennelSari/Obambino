@@ -55,7 +55,6 @@ function App() {
           <Route path="/register" element={<RegisterForm/>}/>
           <Route path="/login" element={<LoginForm/>}/>
 
-          <Route path="/test" element={<TestParent/>}/>
           <Route path="/parent" element={<HomeParent userData={userData}/>}/>
 
           <Route path="/meals" element={<MealsPage/>}/>
