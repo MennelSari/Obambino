@@ -14,7 +14,7 @@ const HomeParent = ({userData}:Props) => {
     <div className="bg-[#FFE1CC] min-h-screen min-w-screen">
       <HeaderParent />
       <HeroParent userData={userData}/>
-      <ParentsCard />
+      <ParentsCard userData={userData}/>
       <Footer />
     </div>
   )
