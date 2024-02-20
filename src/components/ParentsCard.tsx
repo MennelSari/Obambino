@@ -168,9 +168,9 @@ const reportsOfTheDay = matchingReports.filter(report => report.dateReport.slice
     <div key={reportIndex}>
       <h4 className="text-lg font-semibold text-white dark:text-gray-300">{report.child_report.firstname}</h4>
       <p className="mb-2 text-base text-white dark:text-gray-400">
-        : {report.mealReport}<br />
-        Toilette: {report.toiletReport}<br />
-        dodo: {report.sleepReport}
+        Comment s'est passé le repas ? {report.mealReport}<br />
+        Au niveau du popo ? {report.toiletReport}<br />
+        Qualité du sommeil ? {report.sleepReport}
       </p>
     </div>
   ))}
