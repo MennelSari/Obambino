@@ -122,3 +122,7 @@ Supprimer un rapport [delete]
 
 CALENDRIER : 
 /api/event/calendar
+
+CONNEXION : 
+admin@admin.fr
+okokok

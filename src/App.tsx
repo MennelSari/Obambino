@@ -3,7 +3,6 @@ import RegisterForm from "./components/RegisterForm";
 import LoginForm from "./components/LoginForm";
 import HomeParent from "./components/HomeParent";
 import MealsPage from "./components/MealsPage";
-import ChildRegister from "./components/ChildRegister";
 import ReactDOM from 'react-dom'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Cookies from 'js-cookie';
@@ -15,7 +14,8 @@ import {URL_Jerem} from "./URL_List"
 
 
 import Calendar from "./components/Calendar";
-
+import Children from "./components/Children";
+import Absence from "./components/Absence";
 
 
 //with the help of the react-router-dom library, we can create a single page application with multiple routes
@@ -58,8 +58,9 @@ function App() {
           <Route path="/parent" element={<HomeParent userData={userData}/>}/>
 
           <Route path="/meals" element={<MealsPage/>}/>
-          <Route path="/addchild" element={<ChildRegister/>}/>
           <Route path="/calendar" element={<Calendar/>}/>
+          <Route path="/children" element={<Children userData={userData}/>}/>
+          <Route path="/absence/:childId" element={<Absence/>}/>
         </Routes>
       </Router>
 

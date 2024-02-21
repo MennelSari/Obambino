@@ -3,9 +3,8 @@ import { useState } from 'react';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 
-import {URL_Jerem} from "../URL_List";
+import {URL_Jerem} from "../URL_List"
 
-import {URL_Gassim} from "../URL_List"
 
 
 
