@@ -2,11 +2,22 @@ import {useState, useEffect} from 'react'
 import HeaderParent from './HeaderParent'
 import { useParams } from 'react-router-dom'; 
 import axios from 'axios'; 
-import {URL_Jerem} from "../URL_List";
-import { IChild } from "./Children";
+import {URL_AWS} from "../URL_List";
 
 interface IChildInfo {
-  childInfo : IChild[]
+  id: number;
+  firstname: string;
+  lastname: string;
+  birthday: string;
+  gender: string;
+  diet: string;
+  user: {
+      id: number;
+      firstname: string;
+      lastname: string;
+      email: string;
+     
+  } | null;  //because for api test, some children are not linked to a user
 }
 
 interface IAbsence {
@@ -28,7 +39,7 @@ const Absence = () => {
   useEffect(() => {
     const fetchChildInfo = async () => {
       try {
-        const response = await axios.get<IChildInfo>(`${URL_Jerem}api/child/show/${childId}`);
+        const response = await axios.get<IChildInfo>(`${URL_AWS}api/child/show/${childId}`);
         setChildInfo(response.data); 
         console.log(response.data);
       } catch (error) {
@@ -62,7 +73,7 @@ const Absence = () => {
       console.log("Après conversion - start_date:", startDateISO);
       console.log("Après conversion - end_date:", endDateISO);
   
-      const response = await axios.post(`${URL_Jerem}api/absence/create`, {
+      const response = await axios.post(`${URL_AWS}api/absence/create`, {
         comment: absence.comment,
         startdate: startDateISO,
         enddate: endDateISO,

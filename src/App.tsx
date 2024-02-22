@@ -8,8 +8,6 @@ import Cookies from 'js-cookie';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import {URL_AWS} from "./URL_List"
-
-
 import Calendar from "./components/Calendar";
 import Children from "./components/Children";
 import Absence from "./components/Absence";
@@ -46,7 +44,7 @@ function App() {
           <Route path="/parent" element={<HomeParent userData={userData}/>}/>
           <Route path="/meals" element={<MealsPage/>}/>
           <Route path="/calendar" element={<Calendar/>}/>
-          <Route path="/children" element={<Children userData={userData}/>}/>
+          <Route path="/children" element={userData ? <Children userData={userData}/> : null}/> 
           <Route path="/absence/:childId" element={<Absence/>}/>
         </Routes>
       </Router>

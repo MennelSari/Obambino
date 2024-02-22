@@ -1,14 +1,12 @@
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
-import timeGridPlugin from '@fullcalendar/timegrid' // to display the time
 import frLocale from '@fullcalendar/core/locales/fr';
 import HeaderParent from './HeaderParent';
-import interactionPlugin from '@fullcalendar/interaction'; // for selectable    
 import "../calendar.css";
 import Footer from './Footer';
 import {useEffect, useState} from 'react';
 import axios from 'axios';
-import {URL_Maxime} from "../URL_List";
+import {URL_AWS} from "../URL_List";
 
 
 const Calendar = () => {
@@ -22,7 +20,7 @@ const Calendar = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`${URL_Maxime}api/event/calendar`);
+      const response = await axios.get(`${URL_AWS}api/event/calendar`);
       setEvents(response.data);
       console.log(response.data);
     } catch (error) {
