@@ -41,7 +41,7 @@ function App() {
           <Route path="/" element={<HomePublic/>}/>
           <Route path="/register" element={<RegisterForm/>}/>
           <Route path="/login" element={<LoginForm/>}/>
-          <Route path="/parent" element={<HomeParent userData={userData}/>}/>
+          <Route path="/parent" element={userData ? <HomeParent userData={userData}/> : null}/>
           <Route path="/meals" element={<MealsPage/>}/>
           <Route path="/calendar" element={<Calendar/>}/>
           <Route path="/children" element={userData ? <Children userData={userData}/> : null}/> 
