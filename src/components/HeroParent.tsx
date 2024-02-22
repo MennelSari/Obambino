@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react';
 import Balloon from "../assets/Balloon.png"
-import {IuserData} from "./type"
+import {IuserData} from "../type"
 import axios from "axios"
 import {URL_Maxime} from "../URL_List"
 
