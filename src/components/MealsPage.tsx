@@ -1,12 +1,10 @@
-import React, { useState, useEffect } from 'react'
-import HeaderParent from './HeaderParent'
-import Footer from './Footer'
-import {URL_Jerem} from '../URL_List';
+import { useState, useEffect } from 'react';
+import HeaderParent from './HeaderParent';
+import Footer from './Footer';
 import axios from 'axios';
+import { URL_AWS } from '../URL_List';
 
-
-
-interface IMeal{
+interface IMeal {
   starter: string;
   mainMeal: string;
   dessert: string;
@@ -14,12 +12,7 @@ interface IMeal{
   WeekDay: string;
 }
 
-//This is the page where the parent can see the meals of the week
-
-export default function MealsPage() {
-
-
-
+function MealsPage() {
   const [selectedDay, setSelectedDay] = useState('Lundi');
   const [meals, setMeals] = useState<IMeal[]>([]);
 
@@ -29,25 +22,13 @@ export default function MealsPage() {
 
   const fetchMeals = async () => {
     try {
-      const response = await axios.get(`${URL_Jerem}api/meal/list`);
-      console.log("reponse des repas : ", response.data);
+      const response = await axios.get<IMeal[]>(`${URL_AWS}api/meal/list`);
       setMeals(response.data);
-      console.log(meals)
     } catch (error) {
       console.error('erreur:', error);
     }
   };
-console.log(meals.WeekDay)
 
-const weekDays = meals.map((meal) => meal.WeekDay);
-console.log(weekDays)
-  
-
-  // Function to handle the click on the tabs
-  // It will change the selected day to the one clicked
-  const handleTabClick = (day: React.SetStateAction<string>) => {
-    setSelectedDay(day);
-  }
   const displayMealForSelectedDay = () => {
     const selectedMeal = meals.find(meal => meal.WeekDay === selectedDay);
     if (!selectedMeal) return null;
@@ -71,22 +52,23 @@ console.log(weekDays)
       <div className="bg-[#FFE1CC] flex-grow p-10">
         <h1 className="text-5xl text-center font-bold mb-10">Retrouvez le menu de la semaine de Léa</h1>
         <div className="flex justify-center mb-5 space-x-4">
-
-          {weekDays.map(day => (
-
+          {['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi'].map(day => (
             <button 
+              key={day}
               className={`px-4 py-2 rounded text-lg ${selectedDay === day ? 'bg-[#60BFB2] text-white' : 'bg-white text-black'}`}
-              onClick={() => handleTabClick(day)}
+              onClick={() => setSelectedDay(day)}
             >
               {day}
             </button>
           ))}
-          </div>
-          <div className="text-center text-xl flex justify-center">
-            {displayMealForSelectedDay()}
-          </div>
         </div>
-
-        <Footer />
+        <div className="text-center text-xl flex justify-center">
+          {displayMealForSelectedDay()}
+        </div>
       </div>
-    );}
+      <Footer />
+    </div>
+  );
+}
+
+export default MealsPage;

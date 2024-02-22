@@ -3,7 +3,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 
-import {URL_Jerem} from "../URL_List"
+import {URL_AWS} from "../URL_List"
 
 
 
@@ -40,7 +40,7 @@ const LoginForm = () => {
     e.preventDefault(); // Stop the browser from submitting the form
     try {
 
-      const response = await axios.post(`${URL_Jerem}api/login_check`, JSON.stringify(formData), 
+      const response = await axios.post(`${URL_AWS}api/login_check`, JSON.stringify(formData), 
 
       { headers: { 'Content-Type': 'application/json' } } //To be sure that i get format json
     ); // send the data to the backend
