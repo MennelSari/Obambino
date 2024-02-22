@@ -126,3 +126,6 @@ CALENDRIER :
 CONNEXION : 
 admin@admin.fr
 okokok
+
+API POUR L'INFO FLASH
+api/future/events/list
