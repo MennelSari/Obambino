@@ -8,9 +8,13 @@ import {URL_AWS} from "../URL_List"
 interface Props {
   userData: IuserData
 }
+
+interface Iinfo {
+futureEvent: string
+}
 const HeroParent = ({ userData }:Props) => {
 
-const [info, setInfo] = useState<IuserData[]>([])
+const [info, setInfo] = useState<Iinfo[]>([])
 
 useEffect(() => {
   fetchInfo()

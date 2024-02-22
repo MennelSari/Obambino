@@ -3,7 +3,7 @@ import HeroParent from './HeroParent';
 import ParentsCard from './ParentsCard';
 import Footer from './Footer';
 
-import {IuserData} from "./type"
+import {IuserData} from "../type"
 
 interface Props {
   userData: IuserData
