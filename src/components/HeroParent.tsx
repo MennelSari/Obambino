@@ -25,7 +25,7 @@ const fetchInfo = async () => {
   console.log("reponse info flash : ", response.data)
   setInfo(response.data)
 }
-
+const futureEvent = info.length > 0 ? info[0].futureEvent : "";
   // To check if userData is not null
   if (!userData) {
     return <div>Chargement...</div>;
@@ -40,7 +40,7 @@ const fetchInfo = async () => {
           <div className="card w-96 bg-[#FFB54A] text-white mt-6">
             <div className="card-body">
               <h2 className="card-title">Informations flash :</h2>
-              <p>{info[0].futureEvent}</p>
+              <p>{futureEvent}</p>
               
             </div>
           </div>

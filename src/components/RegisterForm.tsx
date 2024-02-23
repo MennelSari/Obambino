@@ -1,8 +1,8 @@
 import HeaderPublic from './HeaderPublic';
 import { useState } from 'react';
 import axios from 'axios';
-
-import { URL_Gassim } from '../URL_List';
+import {useNavigate} from 'react-router-dom';
+import { URL_AWS } from '../URL_List';
 
 
 
@@ -20,6 +20,8 @@ interface FormData {
 
 
 const RegisterForm = () => {
+
+
  
   const [formData, setFormData] = useState<FormData>({
     lastname: '',
@@ -30,6 +32,12 @@ const RegisterForm = () => {
 
   });
 
+  const [isSuccess, setIsSuccess] = useState<boolean>(false); // Add a state to manage the success message
+
+  const navigate = useNavigate(); // Add the navigate function to redirect the user after the form submission
+  const [errors, setErrors] = useState<string[]>([]); // Add a state to manage the errors
+
+ 
   // To update the input's form
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -42,17 +50,31 @@ const RegisterForm = () => {
   // To submit the form
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault(); // Prevent the default form behavior
+   
 
-    // Check if the password and the confirm_password are the same
-
+    // Valider le mot de passe avant de soumettre le formulaire
+    if (!validatePassword(formData.password)) {
+      setErrors(["Votre mot de passe doit contenir au moins 6 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial."]);
+      return;
+    }
     
     try {
-      const response = await axios.post(`${URL_Gassim}api/user/create`, formData); // Send a POST request to the backend
+      const response = await axios.post(`${URL_AWS}api/user/create`, formData); // Send a POST request to the backend
 
-      console.log(response.data); // Log the response
+      console.log( "ce que j'envoie :", response.data); // Log the response
+      setIsSuccess(true); // Set the success message to true
+      setTimeout(() => { // Set a timeout to redirect the user after 3 seconds
+        setIsSuccess(false);
+        navigate('/login');
+      }, 3000);
     } catch (error) {
       console.error(error); // Log the error
     }
+  };
+
+  const validatePassword = (password: string): boolean => {
+    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
+    return regex.test(password);
   };
 
     return (
@@ -62,8 +84,12 @@ const RegisterForm = () => {
       <div className="bg-[#FFE1CC] min-h-screen flex flex-col">
         <div className="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
           <div className="bg-[#332623] px-6 py-8 rounded shadow-md text-black w-full">
+          {isSuccess && (
+        <div className="text-center text-green-500">Inscription réussie, vous serez redirigé vers la page de connexion d'ici quelques secondes...</div>
+      )}
             <h1 className="mb-8 text-3xl text-center text-white">Inscription</h1>
             <form onSubmit={handleSubmit}> {/*// Add the onSubmit function when the submit button is clicked*/}
+            
             <input 
               type="text"
               className="block border border-grey-light w-full p-3 rounded mb-4"
@@ -100,7 +126,7 @@ const RegisterForm = () => {
               className="block border border-grey-light w-full p-3 rounded mb-4"
               name="confirm_password"
               placeholder="Confirmez votre mot de passe" />
-  
+            
             <button
               type="submit"
               className="w-full text-center py-3 rounded bg-green text-white hover:bg-green-dark focus:outline-none my-1"

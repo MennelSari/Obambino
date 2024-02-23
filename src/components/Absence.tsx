@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react'
 import HeaderParent from './HeaderParent'
-import { useParams } from 'react-router-dom'; 
+import { useParams, useNavigate } from 'react-router-dom'; 
 import axios from 'axios'; 
 import {URL_AWS} from "../URL_List";
 
@@ -29,6 +29,8 @@ const Absence = () => {
   const { childId } = useParams(); //to get the childId from the url
   console.log(childId);
 
+  const [isSuccess, setIsSuccess] = useState<boolean>(false); // Add a state to manage the success message
+  const navigate = useNavigate(); // Add the navigate function to redirect the user after the form submission
   const [childInfo, setChildInfo] = useState<IChildInfo | null>(null);
   const [absence, setAbsence] = useState<IAbsence>({
     startdate: "",
@@ -79,6 +81,11 @@ const Absence = () => {
         enddate: endDateISO,
         children: childId 
       });
+      setIsSuccess(true); // Set the success message to true
+      setTimeout(() => { // Set a timeout to redirect the user after 3 seconds
+        setIsSuccess(false);
+        navigate('/children');
+      }, 3000);
   
       console.log(response.data);
     } catch (error) {
@@ -98,6 +105,9 @@ const Absence = () => {
        <div className="bg-[#FFE1CC] min-h-screen flex flex-col">
         <div className="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
           <div className="bg-[#332623] px-6 py-8 rounded shadow-md text-black w-full">
+            {isSuccess && (
+        <div className="text-center text-green-500">L'absence a bien été transmise, vous allez être redirigé vers la page de vos Bambinos</div>
+      )}
             <h1 className="mb-8 text-xl text-center text-white">Informez nous grâce au formulaire ci-dessous :</h1>
             <form onSubmit={handleSubmit} > {/*// Add the onSubmit function when the submit button is clicked*/}
             <input 
