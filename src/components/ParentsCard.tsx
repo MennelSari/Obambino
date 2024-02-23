@@ -151,9 +151,10 @@ const reportsOfTheDay = matchingReports.filter(report => report.dateReport.slice
               <img src={Meal} alt="" className="absolute top-[-50px] left-[-30px] w-13 h-13" />
               <h3 className="mb-6 text-xl font-bold text-white dark:text-gray-400">Mon repas du jour</h3>
               <p className="mb-6 text-sm text-base text-white dark:text-gray-400">
-                Petit-déjeuner : {currentMeal.starter} Déjeuner : {currentMeal.mainMeal}
-                Goûter : {currentMeal.snack}
-                Dessert : {currentMeal.dessert}
+                <strong> Petit-déjeuner </strong> : {currentMeal.starter} <br />
+                <strong> Déjeuner : </strong> {currentMeal.mainMeal}<br />
+                <strong> Goûter : </strong>{currentMeal.snack}<br />
+                <strong> Dessert : </strong> {currentMeal.dessert}<br />
               </p>
               <Link to="/meals">
                 <button
