@@ -2,7 +2,7 @@ import HeaderPublic from './HeaderPublic';
 import { useState } from 'react';
 import axios from 'axios';
 import Cookies from 'js-cookie';
-
+import {useNavigate} from "react-router-dom";
 import {URL_AWS} from "../URL_List"
 
 
@@ -21,7 +21,7 @@ import {URL_AWS} from "../URL_List"
 //composant pour la page de connexion
 const LoginForm = () => {
 
-
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState<FormData>({
     username: '',
@@ -50,7 +50,7 @@ const LoginForm = () => {
     
 
 
-      window.location.href = '/parent'; // Redirect the user to the home page '/parents
+      navigate('/parent') ; // Redirect the user to the home page '/parents
 
     } catch (error) {
       console.error(error); // If an error occurs, the error is logged
