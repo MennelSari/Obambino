@@ -170,7 +170,9 @@ const reportsOfTheDay = matchingReports.filter(report => report.dateReport.slice
           ) : <p>Chargement repas...</p>}
 
           <div className="relative p-8 mb-6 bg-[#332623] border border-gray-100 shadow dark:border-gray-700 md:mb-0 dark:bg-gray-700 rounded-lg">
+            
             <img src={Info} alt="" className="absolute top-[-50px] left-[-30px] w-13 h-13" />
+         
             <h3 className="mb-6 text-xl font-bold text-white dark:text-gray-400">Mon rapport du jour</h3>
             <div>
   {reportsOfTheDay && reportsOfTheDay.map((report, reportIndex) => (
