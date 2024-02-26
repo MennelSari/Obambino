@@ -59,7 +59,7 @@ const RegisterForm = () => {
       setIsSuccess(true); // Set the success message to true
       setTimeout(() => { // Set a timeout to redirect the user after 3 seconds
         setIsSuccess(false);
-        navigate('/children');
+        navigate('/login');
       }, 3000);
     } catch (error) {
       console.error(error);
