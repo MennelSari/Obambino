@@ -133,3 +133,7 @@ api/future/events/list
 
 ADRESSE API VM OCLOCK MAXIME : 
 http://legoffmaxime-server.eddi.cloud/projet-03-o-bambino-back/public/api/
+
+API REVIEWS : 
+
+api/notice/create

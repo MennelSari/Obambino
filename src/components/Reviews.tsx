@@ -1,8 +1,35 @@
+import { URL_Gassim } from "../URL_List"
+import { useState, useEffect } from "react"
 
 //This is the Reviews component that will be used to display the reviews of the website.
 //For now, the reviews are hardcoded but in the future, they will be fetched from the database.
 
+interface IReviews {
+    id: number;
+    comment: string;
+    author: string;
+}
+
 const Reviews = () => {
+
+    const [reviews, setReviews] = useState<IReviews[]>([]);
+
+    useEffect(() => {
+        fetchReviews();
+    }, []);
+
+    const fetchReviews = async () => {
+        try {
+            const response = await fetch(`${URL_Gassim}api/notice/create`);
+            const data = await response.json();
+            console.log('reviews:', data);
+            setReviews(data);
+        } catch (error) {
+            console.error('error:', error);
+        }
+    }
+
+
   return (
     <div>
       <section className="flex items-center bg-[#FFE1CC] lg:h-screen dark:bg-gray-800 font-poppins">
