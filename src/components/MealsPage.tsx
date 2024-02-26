@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import HeaderParent from './HeaderParent';
 import Footer from './Footer';
 import axios from 'axios';
-import { URL_AWS } from '../URL_List';
+import { URL_Vmcloud } from '../URL_List';
 
 interface IMeal {
   starter: string;
@@ -22,7 +22,7 @@ function MealsPage() {
 
   const fetchMeals = async () => {
     try {
-      const response = await axios.get<IMeal[]>(`${URL_AWS}api/meal/list`);
+      const response = await axios.get<IMeal[]>(`${URL_Vmcloud}api/meal/list`);
       setMeals(response.data);
     } catch (error) {
       console.error('erreur:', error);

@@ -5,7 +5,7 @@ import Calendar from '../assets/calendar.png';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { URL_AWS } from '../URL_List';
+import { URL_Vmcloud } from '../URL_List';
 import { IuserData } from "../type";
 
 interface Props {
@@ -61,7 +61,7 @@ const ParentsCard = ({ userData }: Props) => {
 
   const fetchMeals = async () => {
     try {
-      const response = await axios.get(`${URL_AWS}api/meal/list`);
+      const response = await axios.get(`${URL_Vmcloud}api/meal/list`);
       console.log("Response meals:", response.data);
       setMeals(response.data);
     } catch (error) {
@@ -95,7 +95,7 @@ useEffect(() => {
 //to get the children of the user
 const fetchChildren = async () => {
   try {
-    const response = await axios.get(`${URL_AWS}api/child/list`);
+    const response = await axios.get(`${URL_Vmcloud}api/child/list`);
     const data: IChild[] = response.data;
     const userId = userData.id;
     console.log("userId:", userId); // Vérifiez que userData.id est correctement défini
@@ -119,7 +119,7 @@ console.log("rapport des enfants du user:", matchingReports);
 const fetchReports = async () => {
   try {
     // to get the reports of the children
-    const response = await axios.get(`${URL_AWS}api/report/list`);
+    const response = await axios.get(`${URL_Vmcloud}api/report/list`);
     const reportsData = response.data;
     console.log("reportsData (=réponse du back):", reportsData);
     setReports(reportsData);

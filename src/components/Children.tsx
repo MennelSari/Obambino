@@ -2,7 +2,7 @@ import {useEffect, useState} from 'react'
 import {IuserData} from "../type";
 import HeaderParent from "./HeaderParent";
 import CardChildren from "./CardChildren";
-import {URL_AWS} from "../URL_List";
+import {URL_Vmcloud} from "../URL_List";
 import Footer from "./Footer";
 
 
@@ -36,7 +36,7 @@ const Children = ({userData}:Props) => {
     const [matchingChildren, setMatchingChildren] = useState<IChild[]>([]); //children of the parent
 
     useEffect(() => {
-      fetch(`${URL_AWS}api/child/list`) 
+      fetch(`${URL_Vmcloud}api/child/list`) 
           .then(response => response.json())
           .then((data: IChild[]) => {
               const userId = userData.id; //id of the parent

@@ -2,7 +2,7 @@ import HeaderPublic from './HeaderPublic';
 import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { URL_AWS } from '../URL_List';
+import { URL_Vmcloud } from '../URL_List';
 
 interface FormData {
   lastname: string;
@@ -54,7 +54,7 @@ const RegisterForm = () => {
     }
 
     try {
-      const response = await axios.post(`${URL_AWS}api/user/create`, formData);
+      const response = await axios.post(`${URL_Vmcloud}api/user/create`, formData);
       console.log("ce que j'envoie :", response.data);
       setIsSuccess(true); // Set the success message to true
       setTimeout(() => { // Set a timeout to redirect the user after 3 seconds

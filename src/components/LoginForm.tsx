@@ -2,8 +2,7 @@ import HeaderPublic from './HeaderPublic';
 import { useState } from 'react';
 import axios from 'axios';
 import Cookies from 'js-cookie';
-import {useNavigate} from "react-router-dom";
-import {URL_AWS} from "../URL_List"
+import {URL_Vmcloud} from "../URL_List"
 
 
 
@@ -21,7 +20,7 @@ import {URL_AWS} from "../URL_List"
 //composant pour la page de connexion
 const LoginForm = () => {
 
-  const navigate = useNavigate();
+  
 
   const [formData, setFormData] = useState<FormData>({
     username: '',
@@ -40,7 +39,7 @@ const LoginForm = () => {
     e.preventDefault(); // Stop the browser from submitting the form
     try {
 
-      const response = await axios.post(`${URL_AWS}api/login_check`, JSON.stringify(formData), 
+      const response = await axios.post(`${URL_Vmcloud}api/login_check`, JSON.stringify(formData), 
 
       { headers: { 'Content-Type': 'application/json' } } //To be sure that i get format json
     ); // send the data to the backend
@@ -49,8 +48,7 @@ const LoginForm = () => {
       console.log(response.data); // The response is the data from the backend
     
 
-
-      navigate('/parent') ; // Redirect the user to the home page '/parents
+      window.location.href = '/parent'; // Redirect the user to the home page '/parents
 
     } catch (error) {
       console.error(error); // If an error occurs, the error is logged
