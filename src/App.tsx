@@ -11,6 +11,7 @@ import {URL_Vmcloud} from "./URL_List"
 import Calendar from "./components/Calendar";
 import Children from "./components/Children";
 import Absence from "./components/Absence";
+import ErrorPage from "./components/ErrorPage";
 
 
 function App() {
@@ -46,6 +47,7 @@ function App() {
           <Route path="/calendar" element={<Calendar/>}/>
           <Route path="/children" element={userData ? <Children userData={userData}/> : null}/> 
           <Route path="/absence/:childId" element={<Absence/>}/>
+          <Route path="*" element={<ErrorPage/>}/>
         </Routes>
       </Router>
     </>
