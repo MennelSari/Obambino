@@ -1,12 +1,13 @@
 import Meal from '../assets/meal.png';
 import Info from '../assets/unnamed.png';
 import Calendar from '../assets/calendar.png';
-
+import { format } from 'date-fns';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { URL_Vmcloud } from '../URL_List';
 import { IuserData } from "../type";
+import { fr } from 'date-fns/locale';
 
 interface Props {
   userData: IuserData;
@@ -141,6 +142,37 @@ const reportsOfTheDay = matchingReports.filter(report => report.dateReport.slice
 
   // END OF THE PART TO MANAGE THE REPORT
 
+  //START OF THE PART TO MANAGE CALENDAR CARD
+
+  const [events, setEvents] = useState<any[]>([]);
+  const [nextEvent, setNextEvent] = useState(null);
+
+  useEffect(() => {
+    fetchEvents();
+  }, []);
+
+  const fetchEvents = async () => {
+    try {
+      const response = await axios.get(`${URL_Vmcloud}api/event/calendar`);
+      console.log("Response events:", response.data);
+      setEvents(response.data);
+    } catch (error) {
+      console.error('Error fetching events:', error);
+    }
+  }
+  useEffect(() => {
+    // Filter events to find the next upcoming event after current date
+    const upcomingEvent = events.find(event => new Date(event.start) > new Date());
+    setNextEvent(upcomingEvent);
+  }, [events]);
+
+  const formatDate = (nextevent: string): string => {
+    const date = new Date(nextevent); // here we convert the string to a date
+    return format(date, 'dd MMMM', { locale: fr });  // here we format the date to the format we want to display
+};
+
+  //END OF THE PART TO MANAGE CALENDAR CARD
+
   return (
     <section className="flex items-center bg-[#FFE1CC] lg:h-screen dark:bg-gray-800 font-poppins">
       <div className="max-w-6xl px-4 mx-auto">
@@ -200,10 +232,14 @@ const reportsOfTheDay = matchingReports.filter(report => report.dateReport.slice
           <div className="relative p-8 mb-6 bg-[#332623] border border-gray-100 shadow dark:border-gray-700 md:mb-0 dark:bg-gray-700 rounded-lg">
             <img src={Calendar} alt="" className="absolute top-[-50px] left-[-30px] w-13 h-13" />
             <h3 className="mb-6 text-xl font-bold text-white dark:text-gray-400">À venir</h3>
-            <p className="mb-6 text-base text-white dark:text-gray-400">
-              Lorem ipsum dolor sit amet eos adipisci, consectetur adipisicing elit sed ut
-              perspiciatis unde omnis.
-            </p>
+            {nextEvent ? (
+              <div>
+                <p className="text-white">{nextEvent.title} <br/> Prévu le : {formatDate(nextEvent.start)}</p>
+            
+              </div>
+            ) : (
+              <p className="text-white">Aucun événement à venir</p>
+            )}
             <button
               type="button"
               className="inline-block rounded bg-[#FF7B4D] px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-primary-600 focus:bg-primary-600  focus:outline-none focus:ring-0 active:bg-primary-700  dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
