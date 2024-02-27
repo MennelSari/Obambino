@@ -2,7 +2,7 @@ import {useState, useEffect} from 'react'
 import HeaderParent from './HeaderParent'
 import { useParams, useNavigate } from 'react-router-dom'; 
 import axios from 'axios'; 
-import {URL_Vmcloud} from "../URL_List";
+import {URL_Maxime} from "../URL_List";
 
 interface IChildInfo {
   id: number;
@@ -41,7 +41,7 @@ const Absence = () => {
   useEffect(() => {
     const fetchChildInfo = async () => {
       try {
-        const response = await axios.get<IChildInfo>(`${URL_Vmcloud}api/child/show/${childId}`);
+        const response = await axios.get<IChildInfo>(`${URL_Maxime}api/child/show/${childId}`);
         setChildInfo(response.data); 
         console.log(response.data);
       } catch (error) {
