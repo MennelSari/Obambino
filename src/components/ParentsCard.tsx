@@ -219,7 +219,8 @@ const reportsOfTheDay = matchingReports.filter(report => report.dateReport.slice
       <p className="mb-2 text-base text-white dark:text-gray-400">
         Comment s'est passé le repas ? {report.mealReport}<br />
         Au niveau du popo ? {report.toiletReport}<br />
-        Qualité du sommeil ? {report.sleepReport}
+        Qualité du sommeil ? {report.sleepReport}<br/>
+        Commentaire : {report.reminder}
       </p>
     </div>
   ))}
