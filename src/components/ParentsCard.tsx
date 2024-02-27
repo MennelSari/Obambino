@@ -50,6 +50,11 @@ export interface IChild {
   } | null;  // because for api test, some children are not linked to a user
 }
 
+export interface IEvent {
+  title: string;
+  start: string;
+}
+
 const ParentsCard = ({ userData }: Props) => {
   // PART TO MANAGE THE MEALS CARD
   console.log("userData:", userData)
@@ -145,7 +150,7 @@ const reportsOfTheDay = matchingReports.filter(report => report.dateReport.slice
   //START OF THE PART TO MANAGE CALENDAR CARD
 
   const [events, setEvents] = useState<any[]>([]);
-  const [nextEvent, setNextEvent] = useState(null);
+  const [nextEvent, setNextEvent] = useState<IEvent>();
 
   useEffect(() => {
     fetchEvents();
