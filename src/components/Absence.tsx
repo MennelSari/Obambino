@@ -75,7 +75,7 @@ const Absence = () => {
       console.log("Après conversion - start_date:", startDateISO);
       console.log("Après conversion - end_date:", endDateISO);
   
-      const response = await axios.post(`${URL_Vmcloud}api/absence/create`, {
+      const response = await axios.post(`${URL_Maxime}api/absence/create`, {
         comment: absence.comment,
         startdate: startDateISO,
         enddate: endDateISO,
