@@ -179,6 +179,7 @@ const reportsOfTheDay = matchingReports.filter(report => report.dateReport.slice
   //END OF THE PART TO MANAGE CALENDAR CARD
 
   return (
+    <div className="info" id="info">
     <section className="flex items-center bg-[#FFE1CC] lg:h-screen dark:bg-gray-800 font-poppins">
       <div className="max-w-6xl px-4 mx-auto">
         <div className="grid gap-10 text-start md:grid-cols-3">
@@ -188,7 +189,7 @@ const reportsOfTheDay = matchingReports.filter(report => report.dateReport.slice
               <img src={Meal} alt="" className="absolute top-[-50px] left-[-30px] w-13 h-13" />
               <h3 className="mb-6 text-xl font-bold text-white dark:text-gray-400">Mon repas du jour</h3>
               <p className="mb-6 text-sm text-base text-white dark:text-gray-400">
-                <strong> Petit-déjeuner </strong> : {currentMeal.starter} <br />
+                <strong> Entrée : </strong> {currentMeal.starter} <br />
                 <strong> Déjeuner : </strong> {currentMeal.mainMeal}<br />
                 <strong> Goûter : </strong>{currentMeal.snack}<br />
                 <strong> Dessert : </strong> {currentMeal.dessert}<br />
@@ -256,6 +257,7 @@ const reportsOfTheDay = matchingReports.filter(report => report.dateReport.slice
         </div>
       </div>
     </section>
+    </div>
   );
 }
 

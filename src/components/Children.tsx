@@ -55,10 +55,12 @@ const Children = ({userData}:Props) => {
 
         <div className="bg-[#FFE1CC]">
             <h1 className="text-5xl text-center font-bold mb-10 mt-10">Retrouvez vos Bambinos !</h1>
-            <div className=" flex justify-center py-4 mt-3 ">
+            <div className=" flex flex-row justify-center py-4 mt-3">
+            <div className="flex flex-row overflow-x-auto min-w py-2">
             {matchingChildren.map((child: IChild) => (
                         <CardChildren key={child.id} child={child} />
                     ))} {/* display each child of the parent */}
+            </div>
             </div>
         </div>
         <Footer/>

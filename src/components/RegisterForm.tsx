@@ -115,19 +115,20 @@ const RegisterForm = () => {
                 className="block border border-grey-light w-full p-3 rounded mb-4"
                 name="confirm_password"
                 placeholder="Confirmez votre mot de passe" />
-              {errors.length > 0 && errors.map((error, index) => (
+                
+              {errors.length > 0 ? errors.map((error, index) => (
                 <div key={index} className="text-red-500 mb-2">{error}</div>
-              ))}
+              )) : <p className="text-white">Votre mot de passe doit contenir au moins 6 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial.</p>}
               <button
                 type="submit"
-                className="w-full text-center py-3 rounded bg-green text-white hover:bg-green-dark focus:outline-none my-1"
+                className="w-full button text-center py-3 rounded bg-green text-white hover:bg-green-dark focus:outline-none my-1"
               >Créer le compte</button>
               <div className="text-center text-sm text-white mt-4">
-                En créant un compte, vous acceptez nos
+                En créant un compte, vous acceptez nos <br/>
                 <a className="no-underline border-b border-grey-dark text-white" href="#">
                   Conditions d'utilisation
-                </a> et 
-                <a className="no-underline border-b border-grey-dark text-white" href="#">
+                </a> <br/>et 
+                <a className="no-underline border-b border-grey-dark text-white" href="#"> <br/>
                   Politique de confidentialité
                 </a>
               </div>
