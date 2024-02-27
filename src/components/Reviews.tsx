@@ -1,6 +1,7 @@
 import { URL_Vmcloud } from "../URL_List";
 import { useState, useEffect } from "react";
 
+
 //This is the Reviews component that will be used to display the reviews of the website.
 //For now, the reviews are hardcoded but in the future, they will be fetched from the database.
 
@@ -32,7 +33,7 @@ const Reviews = () => {
     //For now, the reviews are hardcoded but in the future, they will be fetched from the database.
 
     return (
-        <section className="flex items-center bg-[#FFE1CC] lg:h-screen dark:bg-gray-800 font-poppins">
+        <section id="reviews" className="reviews flex items-center bg-[#FFE1CC] mb-10 dark:bg-gray-800 font-poppins">
             <div className="w-full px-4 mx-auto">
                 <div className="grid gap-6 text-center md:grid-cols-3">
                     {datareviews.map((review) => ( 

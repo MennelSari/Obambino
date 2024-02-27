@@ -179,6 +179,7 @@ const reportsOfTheDay = matchingReports.filter(report => report.dateReport.slice
   //END OF THE PART TO MANAGE CALENDAR CARD
 
   return (
+    <div className="info" id="info">
     <section className="flex items-center bg-[#FFE1CC] lg:h-screen dark:bg-gray-800 font-poppins">
       <div className="max-w-6xl px-4 mx-auto">
         <div className="grid gap-10 text-start md:grid-cols-3">
@@ -256,6 +257,7 @@ const reportsOfTheDay = matchingReports.filter(report => report.dateReport.slice
         </div>
       </div>
     </section>
+    </div>
   );
 }
 
