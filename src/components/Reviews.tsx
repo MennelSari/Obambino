@@ -1,4 +1,4 @@
-import { URL_Gassim } from "../URL_List";
+import { URL_Vmcloud } from "../URL_List";
 import { useState, useEffect } from "react";
 
 //This is the Reviews component that will be used to display the reviews of the website.
@@ -20,7 +20,7 @@ const Reviews = () => {
 
     const fetchReviews = async () => {
         try {
-            const response = await fetch(`${URL_Gassim}api/notice/list`);
+            const response = await fetch(`${URL_Vmcloud}api/notice/list`);
             const data = await response.json();
             console.log('reviews:', data);
             setDatareviews(data);
