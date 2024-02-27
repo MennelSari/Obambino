@@ -27,6 +27,8 @@ const LoginForm = () => {
     password: ''
   });
 
+  const [error, setError] = useState<string>('');
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData(prevState => ({
@@ -51,6 +53,7 @@ const LoginForm = () => {
       window.location.href = '/parent'; // Redirect the user to the home page '/parents
 
     } catch (error) {
+      setError('Nom d\'utilisateur ou mot de passe incorrect'); // If an error occurs, the error is logged
       console.error(error); // If an error occurs, the error is logged
     }
   };
@@ -80,7 +83,7 @@ const LoginForm = () => {
               onChange={handleChange}
               name="password"
               placeholder="Mot de Passe" />
-
+            {error && <div className="text-red-500 mb-4">{error}</div>}
 
             <button
               type="submit"

@@ -36,10 +36,10 @@ function MealsPage() {
       <div className="card w-96 bg-[#FFB54A] shadow-xl">
         <div className="card-body">
           <ul className="text-white">
-            <li>Entrée : {selectedMeal.starter}</li>
-            <li>Plat : {selectedMeal.mainMeal}</li>
-            <li>Dessert : {selectedMeal.dessert}</li>
-            <li>Goûter : {selectedMeal.snack}</li>
+            <li><strong>Entrée : </strong>{selectedMeal.starter}</li>
+            <li><strong>Plat : </strong>{selectedMeal.mainMeal}</li>
+            <li><strong>Dessert : </strong> {selectedMeal.dessert}</li>
+            <li><strong>Goûter :</strong> {selectedMeal.snack}</li>
           </ul>
         </div>
       </div>
@@ -50,17 +50,19 @@ function MealsPage() {
     <div className="flex flex-col justify-between min-h-screen">
       <HeaderParent />
       <div className="bg-[#FFE1CC] flex-grow p-10">
-        <h1 className="text-5xl text-center font-bold mb-10">Retrouvez le menu de la semaine de Léa</h1>
+        <h1 className="text-5xl text-center font-bold mb-10 ">Retrouvez le menu de la semaine</h1>
         <div className="flex justify-center mb-5 space-x-4">
+        <div className="flex flex-row overflow-x-auto min-w py-2">
           {['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi'].map(day => (
             <button 
               key={day}
-              className={`px-4 py-2 rounded text-lg ${selectedDay === day ? 'bg-[#60BFB2] text-white' : 'bg-white text-black'}`}
+              className={`px-4 py-2 rounded text-lg sm:text-base lg:text-lg ${selectedDay === day ? 'bg-[#60BFB2] text-white' : 'bg-white text-black'}`}
               onClick={() => setSelectedDay(day)}
             >
               {day}
             </button>
           ))}
+          </div>
         </div>
         <div className="text-center text-xl flex justify-center">
           {displayMealForSelectedDay()}
