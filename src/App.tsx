@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Cookies from 'js-cookie';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import {URL_Maxime} from "./URL_List"
+import {URL_Mennel} from "./URL_List"
 import Calendar from "./components/Calendar";
 import Children from "./components/Children";
 import Absence from "./components/Absence";
@@ -23,7 +23,7 @@ function App() {
     
     if (token) {
       axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-      axios.get(`${URL_Maxime}api/secure/test`) 
+      axios.get(`${URL_Mennel}api/secure/test`) 
         .then(response => {
           console.log('REPONSE API TEST:', response.data);
           setUserData(response.data);

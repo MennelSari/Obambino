@@ -2,7 +2,7 @@ import {useEffect, useState} from 'react'
 import {IuserData} from "../type";
 import HeaderParent from "./HeaderParent";
 import CardChildren from "./CardChildren";
-import {URL_Maxime} from "../URL_List";
+import {URL_Mennel} from "../URL_List";
 import Footer from "./Footer";
 
 
@@ -36,7 +36,7 @@ const Children = ({userData}:Props) => {
     const [matchingChildren, setMatchingChildren] = useState<IChild[]>([]); //children of the parent
 
     useEffect(() => {
-      fetch(`${URL_Maxime}api/child/list`) 
+      fetch(`${URL_Mennel}api/child/list`) 
           .then(response => response.json())
           .then((data: IChild[]) => {
               const userId = userData.id; //id of the parent

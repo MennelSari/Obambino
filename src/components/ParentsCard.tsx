@@ -5,7 +5,7 @@ import { format } from 'date-fns';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { URL_Maxime } from '../URL_List';
+import { URL_Mennel } from '../URL_List';
 import { IuserData } from "../type";
 import { fr } from 'date-fns/locale';
 
@@ -67,7 +67,7 @@ const ParentsCard = ({ userData }: Props) => {
 
   const fetchMeals = async () => {
     try {
-      const response = await axios.get(`${URL_Maxime}api/meal/list`);
+      const response = await axios.get(`${URL_Mennel}api/meal/list`);
       console.log("Response meals:", response.data);
       setMeals(response.data);
     } catch (error) {
@@ -101,7 +101,7 @@ useEffect(() => {
 //to get the children of the user
 const fetchChildren = async () => {
   try {
-    const response = await axios.get(`${URL_Maxime}api/child/list`);
+    const response = await axios.get(`${URL_Mennel}api/child/list`);
     const data: IChild[] = response.data;
     const userId = userData.id;
     console.log("userId:", userId); // Vérifiez que userData.id est correctement défini
@@ -125,7 +125,7 @@ console.log("rapport des enfants du user:", matchingReports);
 const fetchReports = async () => {
   try {
     // to get the reports of the children
-    const response = await axios.get(`${URL_Maxime}api/report/list`);
+    const response = await axios.get(`${URL_Mennel}api/report/list`);
     const reportsData = response.data;
     console.log("reportsData (=réponse du back):", reportsData);
     setReports(reportsData);
@@ -158,7 +158,7 @@ const reportsOfTheDay = matchingReports.filter(report => report.dateReport.slice
 
   const fetchEvents = async () => {
     try {
-      const response = await axios.get(`${URL_Maxime}api/event/calendar`);
+      const response = await axios.get(`${URL_Mennel}api/event/calendar`);
       console.log("Response events:", response.data);
       setEvents(response.data);
     } catch (error) {
@@ -194,6 +194,9 @@ const reportsOfTheDay = matchingReports.filter(report => report.dateReport.slice
                 <strong> Goûter : </strong>{currentMeal.snack}<br />
                 <strong> Dessert : </strong> {currentMeal.dessert}<br />
               </p>
+              <br/>
+              <br/>
+              <br/>
               <Link to="/meals">
                 <button
                   type="button"
@@ -225,7 +228,7 @@ const reportsOfTheDay = matchingReports.filter(report => report.dateReport.slice
     </div>
   ))}
 </div>
-
+<br/>
             
             <button
               type="button"
@@ -238,7 +241,9 @@ const reportsOfTheDay = matchingReports.filter(report => report.dateReport.slice
 
           <div className="relative p-8 mb-6 bg-[#332623] border border-gray-100 shadow dark:border-gray-700 md:mb-0 dark:bg-gray-700 rounded-lg">
             <img src={Calendar} alt="" className="absolute top-[-50px] left-[-30px] w-13 h-13" />
+            
             <h3 className="mb-6 text-xl font-bold text-white dark:text-gray-400">À venir</h3>
+           
             {nextEvent ? (
               <div>
                 <p className="text-white">{nextEvent.title} <br/> Prévu le : {formatDate(nextEvent.start)}</p>
@@ -247,6 +252,13 @@ const reportsOfTheDay = matchingReports.filter(report => report.dateReport.slice
             ) : (
               <p className="text-white">Aucun événement à venir</p>
             )}
+            <br/>
+
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
             <button
               type="button"
               className="inline-block rounded bg-[#FF7B4D] px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-primary-600 focus:bg-primary-600  focus:outline-none focus:ring-0 active:bg-primary-700  dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
@@ -254,6 +266,7 @@ const reportsOfTheDay = matchingReports.filter(report => report.dateReport.slice
               data-te-ripple-color="light">
               En savoir plus
             </button>
+            
           </div>
         </div>
       </div>

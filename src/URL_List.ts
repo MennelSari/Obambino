@@ -9,3 +9,5 @@ export const URL_Gassim = "http://algassimou-diallo.vpnuser.lan/apo/projet-03-o-
 
 export const URL_Vmcloud = "https://legoffmaxime-server.eddi.cloud/"
 
+export const URL_Mennel = "http://mennel-sari.vpnuser.lan/Obambino/projet-03-o-bambino-back/public/"
+

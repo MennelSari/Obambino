@@ -2,7 +2,7 @@ import {useState, useEffect} from 'react';
 import Balloon from "../assets/Balloon.png"
 import {IuserData} from "../type"
 import axios from "axios"
-import {URL_Maxime} from "../URL_List"
+import {URL_Mennel} from "../URL_List"
 import { Link } from 'react-scroll';
 
 
@@ -22,7 +22,7 @@ useEffect(() => {
 }, [])
 
 const fetchInfo = async () => {
-  const response = await axios.get(`${URL_Maxime}api/future/events/list`)
+  const response = await axios.get(`${URL_Mennel}api/future/events/list`)
   console.log("reponse info flash : ", response.data)
   setInfo(response.data)
 }
