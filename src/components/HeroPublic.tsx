@@ -18,7 +18,7 @@ const HeroPublic = () => {
       <h2>Vos p’tis bouts toujours proches de vous
         </h2>
         
-      <p className="py-6"><strong>Bienvenue O'bambino, la plateforme dédiée aux parents !</strong> <br/>
+      <p className="py-6"><strong>Bienvenue sur O'bambino, la plateforme dédiée aux parents !</strong> <br/>
       Restez connectés à la journée de votre enfant où que vous soyez. Recevez en temps réel des informations précieuses sur les événements, les rapports quotidiens et bien plus encore.<br/>
        Notre engagement est de vous offrir une expérience transparente et rassurante pour suivre de près le développement de vos p'tits bouts.</p>
        <Link to="reviews" smooth={true} duration={500}>

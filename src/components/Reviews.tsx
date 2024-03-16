@@ -1,4 +1,4 @@
-import { URL_Vmcloud } from "../URL_List";
+import { URL_Mennel } from "../URL_List";
 import { useState, useEffect } from "react";
 
 
@@ -21,7 +21,7 @@ const Reviews = () => {
 
     const fetchReviews = async () => {
         try {
-            const response = await fetch(`${URL_Vmcloud}api/notice/list`);
+            const response = await fetch(`${URL_Mennel}api/notice/list`);
             const data = await response.json();
             console.log('reviews:', data);
             setDatareviews(data);
