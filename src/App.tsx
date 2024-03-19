@@ -13,19 +13,17 @@ import Children from "./components/Children";
 import Absence from "./components/Absence";
 import ErrorPage from "./components/ErrorPage";
 
-//TEST DE BRANCHE HOTE
+
 function App() {
   const [userData, setUserData] = useState(null);
 
   useEffect(() => {
     const token = Cookies.get('token');
-    console.log('token:', token);
     
     if (token) {
       axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
       axios.get(`${URL_Mennel}api/secure/test`) 
         .then(response => {
-          console.log('REPONSE API TEST:', response.data);
           setUserData(response.data);
         })
         .catch(error => {
@@ -33,7 +31,6 @@ function App() {
         });
     }
   }, []); 
-  console.log("contenu de ma props =", userData)
   
   return (
     <>

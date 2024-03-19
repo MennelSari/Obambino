@@ -67,7 +67,7 @@ const RegisterForm = () => {
   };
 
   const validatePassword = (password: string): boolean => {
-    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
+    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
     return regex.test(password);
   };
 
@@ -118,7 +118,7 @@ const RegisterForm = () => {
                 
               {errors.length > 0 ? errors.map((error, index) => (
                 <div key={index} className="text-red-500 mb-2">{error}</div>
-              )) : <p className="text-white">Votre mot de passe doit contenir au moins 6 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial.</p>}
+              )) : <p className="text-white">Votre mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial.</p>}
               <button
                 type="submit"
                 className="w-full button text-center py-3 rounded bg-green text-white hover:bg-green-dark focus:outline-none my-1"
