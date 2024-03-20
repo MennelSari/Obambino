@@ -2,7 +2,7 @@ import {useState, useEffect} from 'react'
 import HeaderParent from './HeaderParent'
 import { useParams, useNavigate } from 'react-router-dom'; 
 import axios from 'axios'; 
-import {URL_Mennel} from "../URL_List";
+import {URL_Server} from "../URL_List";
 
 interface IChildInfo {
   id: number;
@@ -41,9 +41,8 @@ const Absence = () => {
   useEffect(() => {
     const fetchChildInfo = async () => {
       try {
-        const response = await axios.get<IChildInfo>(`${URL_Mennel}api/child/show/${childId}`);
+        const response = await axios.get<IChildInfo>(`${URL_Server}api/child/show/${childId}`);
         setChildInfo(response.data); 
-        console.log(response.data);
       } catch (error) {
         console.error(error);
       }
@@ -75,7 +74,7 @@ const Absence = () => {
       console.log("Après conversion - start_date:", startDateISO);
       console.log("Après conversion - end_date:", endDateISO);
   
-      const response = await axios.post(`${URL_Mennel}api/absence/create`, {
+      const response = await axios.post(`${URL_Server}api/absence/create`, {
         comment: absence.comment,
         startdate: startDateISO,
         enddate: endDateISO,

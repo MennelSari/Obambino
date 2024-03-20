@@ -5,7 +5,7 @@ import { format } from 'date-fns';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { URL_Mennel } from '../URL_List';
+import { URL_Server } from '../URL_List';
 import { IuserData } from "../type";
 import { fr } from 'date-fns/locale';
 
@@ -67,7 +67,7 @@ const ParentsCard = ({ userData }: Props) => {
 
   const fetchMeals = async () => {
     try {
-      const response = await axios.get(`${URL_Mennel}api/meal/list`);
+      const response = await axios.get(`${URL_Server}api/meal/list`);
       console.log("Response meals:", response.data);
       setMeals(response.data);
     } catch (error) {
@@ -101,7 +101,7 @@ useEffect(() => {
 //to get the children of the user
 const fetchChildren = async () => {
   try {
-    const response = await axios.get(`${URL_Mennel}api/child/list`);
+    const response = await axios.get(`${URL_Server}api/child/list`);
     const data: IChild[] = response.data;
     const userId = userData.id;
     console.log("userId:", userId); // Vérifiez que userData.id est correctement défini
@@ -125,7 +125,7 @@ console.log("rapport des enfants du user:", matchingReports);
 const fetchReports = async () => {
   try {
     // to get the reports of the children
-    const response = await axios.get(`${URL_Mennel}api/report/list`);
+    const response = await axios.get(`${URL_Server}api/report/list`);
     const reportsData = response.data;
     console.log("reportsData (=réponse du back):", reportsData);
     setReports(reportsData);
@@ -158,7 +158,7 @@ const reportsOfTheDay = matchingReports.filter(report => report.dateReport.slice
 
   const fetchEvents = async () => {
     try {
-      const response = await axios.get(`${URL_Mennel}api/event/calendar`);
+      const response = await axios.get(`${URL_Server}api/event/calendar`);
       console.log("Response events:", response.data);
       setEvents(response.data);
     } catch (error) {
