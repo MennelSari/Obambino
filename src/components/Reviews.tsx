@@ -23,7 +23,6 @@ const Reviews = () => {
         try {
             const response = await fetch(`${URL_Server}api/notice/list`);
             const data = await response.json();
-            console.log('reviews:', data);
             setDatareviews(data);
         } catch (error) {
             console.error('error:', error);
