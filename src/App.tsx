@@ -22,7 +22,7 @@ function App() {
     
     if (token) {
       axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-      axios.get(`${URL_Server}/api/secure/test`) 
+      axios.get(`${URL_Server}api/secure/test`) 
         .then(response => {
           setUserData(response.data);
         })
