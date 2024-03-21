@@ -54,7 +54,7 @@ const RegisterForm = () => {
     }
 
     try {
-      const response = await axios.post(`${URL_Server}api/user/create`, formData);
+      const response = await axios.post(`${URL_Server}/back/api/user/create`, formData);
       console.log("ce que j'envoie :", response.data);
       setIsSuccess(true); // Set the success message to true
       setTimeout(() => { // Set a timeout to redirect the user after 3 seconds

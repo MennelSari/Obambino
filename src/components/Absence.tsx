@@ -83,7 +83,7 @@ const Absence = () => {
       setIsSuccess(true); // Set the success message to true
       setTimeout(() => { // Set a timeout to redirect the user after 3 seconds
         setIsSuccess(false);
-        navigate('/children');
+        navigate('/enfants');
       }, 3000);
   
       console.log(response.data);

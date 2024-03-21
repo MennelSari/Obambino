@@ -22,7 +22,7 @@ function App() {
     
     if (token) {
       axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-      axios.get(`${URL_Server}api/secure/test`) 
+      axios.get(`${URL_Server}/back/api/secure/test`) 
         .then(response => {
           setUserData(response.data);
         })
@@ -37,12 +37,12 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<HomePublic/>}/>
-          <Route path="/register" element={<RegisterForm/>}/>
-          <Route path="/login" element={<LoginForm/>}/>
+          <Route path="/inscription" element={<RegisterForm/>}/>
+          <Route path="/connexion" element={<LoginForm/>}/>
           <Route path="/parent" element={userData ? <HomeParent userData={userData}/> : null}/>
-          <Route path="/meals" element={<MealsPage/>}/>
-          <Route path="/calendar" element={<Calendar/>}/>
-          <Route path="/children" element={userData ? <Children userData={userData}/> : null}/> 
+          <Route path="/repas" element={<MealsPage/>}/>
+          <Route path="/calendrier" element={<Calendar/>}/>
+          <Route path="/enfants" element={userData ? <Children userData={userData}/> : null}/> 
           <Route path="/absence/:childId" element={<Absence/>}/>
           <Route path="*" element={<ErrorPage/>}/>
         </Routes>
