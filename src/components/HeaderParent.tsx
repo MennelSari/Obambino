@@ -26,9 +26,9 @@ export default function HeaderParent() {
       {/* Mobile menu */}
       <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
         <li><Link to="/parent">ACCUEIL</Link></li>
-        <li><Link to="/calendar">CALENDRIER</Link> </li>
-        <li> <Link to="/meals">MENU DE LA SEMAINE</Link> </li>
-        <li> <Link to="/children">MES BAMBINOS</Link> </li>
+        <li><Link to="/calendrier">CALENDRIER</Link> </li>
+        <li> <Link to="/repas">MENU DE LA SEMAINE</Link> </li>
+        <li> <Link to="/enfants">MES BAMBINOS</Link> </li>
         
       </ul>
     </div>
@@ -43,9 +43,9 @@ export default function HeaderParent() {
   <div className="navbar-end hidden lg:flex">
     <ul className="menu menu-horizontal px-1 flex-nowrap">
       <li><Link to="/parent">ACCUEIL</Link></li>
-      <li><Link to="/calendar">CALENDRIER</Link> </li>
-      <li> <Link to="/meals">MENU DE LA SEMAINE</Link> </li>
-      <li> <Link to="/children">MES BAMBINOS</Link> </li>
+      <li><Link to="/calendrier">CALENDRIER</Link> </li>
+      <li> <Link to="/repas">MENU DE LA SEMAINE</Link> </li>
+      <li> <Link to="/enfants">MES BAMBINOS</Link> </li>
       
     </ul>
   </div>

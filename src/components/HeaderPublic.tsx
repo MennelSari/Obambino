@@ -20,6 +20,8 @@ const HeaderPublic = () => {
           {/* Mobile menu */}
           <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
             <li><Link to="/">ACCUEIL</Link></li>
+            <li><Link to="/inscription">INSCRIPTION</Link></li>
+            <li><Link to="/connexion">CONNEXION</Link></li>
 
           </ul>
         </div>
@@ -34,8 +36,8 @@ const HeaderPublic = () => {
      
       <div className="navbar-end flex">
     <Link to="/" className='px-4 hover:px-4 hover:py-4 hover:bg-gray-100 rounded-md hidden lg:block'>ACCUEIL</Link>
-        <Link to="/register" className="btn bg-[#FF7B4D] ml-2">INSCRIPTION</Link>
-        <Link to="/login" className="btn bg-[#FF7B4D]">CONNEXION</Link>
+        <Link to="/inscription" className="btn bg-[#FF7B4D] ml-2">INSCRIPTION</Link>
+        <Link to="/connexion" className="btn bg-[#FF7B4D]">CONNEXION</Link>
       </div>
 
     </div>
