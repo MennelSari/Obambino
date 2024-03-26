@@ -45,7 +45,7 @@ const RegisterForm = () => {
     e.preventDefault();
     const confirm_password = e.currentTarget.confirm_password.value;
     if (!validatePassword(formData.password)) {
-      setErrors(["Votre mot de passe doit contenir au moins 6 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial."]);
+      setErrors(["Votre mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial."]);
       return;
     }
 
