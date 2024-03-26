@@ -39,10 +39,10 @@ function App() {
           <Route path="/" element={<HomePublic/>}/>
           <Route path="/inscription" element={<RegisterForm/>}/>
           <Route path="/connexion" element={<LoginForm/>}/>
-          <Route path="/parent" element={userData ? <HomeParent userData={userData}/> : null}/>
+          <Route path="/parent" element={userData ? <HomeParent userData={userData}/> : <HomePublic/>}/>
           <Route path="/repas" element={<MealsPage/>}/>
           <Route path="/calendrier" element={<Calendar/>}/>
-          <Route path="/enfants" element={userData ? <Children userData={userData}/> : null}/> 
+          <Route path="/enfants" element={userData ? <Children userData={userData}/> : <HomePublic/>}/> 
           <Route path="/absence/:childId" element={<Absence/>}/>
           <Route path="*" element={<ErrorPage/>}/>
         </Routes>
