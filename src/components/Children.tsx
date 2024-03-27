@@ -36,27 +36,23 @@ const Children = ({userData}:Props) => {
     const [matchingChildren, setMatchingChildren] = useState<IChild[]>([]); //children of the parent
 
     useEffect(() => {
-        if (userData) { // Vérifier si l'utilisateur est authentifié avant de récupérer les repas
-            fetchData();
-        }
-      }, [userData]);
+        const fetchData = async () => {
+            try {
+                if (userData) { // Vérifier si l'utilisateur est authentifié avant de récupérer les repas
+                    const response = await axios.get(`${URL_Server}api/child/list`);
+                    const data: IChild[] = response.data;
+                    const userId = userData.id;
+                    console.log(userId);
+                    const matchingChildren = data.filter(child => child.user && child.user.id === userId);
+                    setMatchingChildren(matchingChildren);
+                }
+            } catch (error) {
+                console.error("Problème lors de la récupération des enfants :", error);
+            }
+        };
 
-      
-
-      const fetchData = async () => {
-        try {
-          const response = await axios.get(`${URL_Server}api/child/list`);
-          const data: IChild[] = response.data;
-          const userId = userData.id;
-          console.log(userId);
-          const matchingChildren = data.filter(child => child.user && child.user.id === userId);
-          setMatchingChildren(matchingChildren);
-        } catch (error) {
-          console.error("Problème lors de la récupération des enfants :", error);
-        }
-      };
-    
-      fetchData();
+        fetchData();
+    }, [userData]);
     
 
 
