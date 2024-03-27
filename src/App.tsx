@@ -41,7 +41,7 @@ function App() {
           <Route path="/connexion" element={<LoginForm/>}/>
           <Route path="/parent" element={userData ? <HomeParent userData={userData}/> : <HomePublic/>}/>
           <Route path="/repas" element={userData ? <MealsPage userData={userData}/> : <HomePublic/>}/>
-          <Route path="/calendrier" element={<Calendar/>}/>
+          <Route path="/calendrier" element={userData ? <Calendar userData={userData}/> : <HomePublic/>}/>
           <Route path="/enfants" element={userData ? <Children userData={userData}/> : <HomePublic/>}/> 
           <Route path="/absence/:childId" element={<Absence/>}/>
           <Route path="*" element={<ErrorPage/>}/>

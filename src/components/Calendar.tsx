@@ -8,15 +8,24 @@ import {useEffect, useState} from 'react';
 import axios from 'axios';
 import {URL_Server} from "../URL_List";
 
-
-const Calendar = () => {
+interface IUserData {
+  id: number;
+    email: string;
+    firstname: string;
+    lastname: string;
+    password: string;
+    roles: string[];
+}
+const Calendar = ({ userData }: { userData: IUserData }) => {
 
   const [events, setEvents] = useState<[]>([]);
   
- //to get the events from the database
+ 
   useEffect(() => {
-    fetchData();
-  }, []);
+    if (userData) { // Vérifier si l'utilisateur est authentifié avant de récupérer les repas
+      fetchData();
+    }
+  }, [userData]);
 
   const fetchData = async () => {
     try {
