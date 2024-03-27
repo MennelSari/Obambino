@@ -4,7 +4,7 @@ import HeaderParent from "./HeaderParent";
 import CardChildren from "./CardChildren";
 import {URL_Server} from "../URL_List";
 import Footer from "./Footer";
-
+import axios from 'axios';
 
 
 interface Props {
@@ -36,16 +36,28 @@ const Children = ({userData}:Props) => {
     const [matchingChildren, setMatchingChildren] = useState<IChild[]>([]); //children of the parent
 
     useEffect(() => {
-      fetch(`${URL_Server}api/child/list`) 
-          .then(response => response.json())
-          .then((data: IChild[]) => {
-              const userId = userData.id; //id of the parent
-              console.log(userId)
-              const matchingChildren = data.filter(child => child.user && child.user.id === userId); //filter children of the parent
-              setMatchingChildren(matchingChildren); //set the state
-          })
-          .catch(error => console.error("Problème lors de la récupération des enfants :", error));
-  }, [userData]);
+        if (userData) { // Vérifier si l'utilisateur est authentifié avant de récupérer les repas
+            fetchData();
+        }
+      }, [userData]);
+
+      
+
+      const fetchData = async () => {
+        try {
+          const response = await axios.get(`${URL_Server}api/child/list`);
+          const data: IChild[] = response.data;
+          const userId = userData.id;
+          console.log(userId);
+          const matchingChildren = data.filter(child => child.user && child.user.id === userId);
+          setMatchingChildren(matchingChildren);
+        } catch (error) {
+          console.error("Problème lors de la récupération des enfants :", error);
+        }
+      };
+    
+      fetchData();
+    
 
 
   return (
