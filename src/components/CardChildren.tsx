@@ -24,7 +24,7 @@ const CardChildren = ({ child }: Props) => {
             <div className="max-w-xs">
                 <div className="bg-[#FFB54A] shadow-xl rounded-lg py-3">
                     <div className="photo-wrapper p-2">
-                        {child.gender === "Fille" ? <img className="w-32 h-32 rounded-full mx-auto" src={AvatarFille} alt="avatar fille" /> : <img className="w-32 h-32 rounded-full mx-auto" src={AvatarGarcon} alt="avatar fille" />}
+                        {child.gender === "Fille" ? <img className="w-32 h-32 rounded-full mx-auto" src={AvatarFille} alt="avatar fille" /> : <img className="w-32 h-32 rounded-full mx-auto" src={AvatarGarcon} alt="avatar garcons" />}
                         {/* here we check if the child is a boy or a girl, and display the correct */}
                     </div>
                     <div className="p-2 ">
