@@ -27,7 +27,7 @@ const HeaderPublic = () => {
         </div>
         <div className="navbar max-h-20">
           <Link to="/">
-            <img src={Logo} alt="" className="hidden md:block w-64 h-64 object-contain object-center" />
+            <img src={Logo} alt="Logo Obambino" className="hidden md:block w-64 h-64 object-contain object-center" />
           </Link>
   
         </div>

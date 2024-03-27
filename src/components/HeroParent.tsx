@@ -36,7 +36,7 @@ const futureEvent = info.length > 0 ? info[0].futureEvent : "";
     <div>
       <div className="hero min-h-screen bg-[#FFE1CC]">
           <div className="hero-content flex-col lg:flex-row-reverse">
-              <img src={Balloon} className="max-w-sm rounded-lg w-full h-auto" />
+              <img src={Balloon} alt="Enfants sur un ballon" className="max-w-sm rounded-lg w-full h-auto" />
                 <div>
                   <h1 className="text-5xl font-bold">Bienvenue {userData.firstname} !</h1>
                      
