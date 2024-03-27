@@ -12,14 +12,26 @@ interface IMeal {
   WeekDay: string;
 }
 
-function MealsPage() {
+interface IUserData {
+  id: number;
+    email: string;
+    firstname: string;
+    lastname: string;
+    password: string;
+    roles: string[];
+}
+
+function MealsPage({ userData }: { userData: IUserData }) {
   const [selectedDay, setSelectedDay] = useState('Lundi');
   const [meals, setMeals] = useState<IMeal[]>([]);
 
+  
   useEffect(() => {
-    fetchMeals();
-  }, []);
-
+    if (userData) { // Vérifier si l'utilisateur est authentifié avant de récupérer les repas
+      fetchMeals();
+    }
+  }, [userData]);
+  
   const fetchMeals = async () => {
     try {
       const response = await axios.get<IMeal[]>(`${URL_Server}api/meal/list`);
